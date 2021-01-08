@@ -4,7 +4,7 @@ A practiced frontend project with vue3
 ### How to create a vue3 project
 Step1. install yarn or npm 
 
-Step2. create a repo on github
+Step2. create a repo on github and clone
 
 Step3. install vue cli
 ```
