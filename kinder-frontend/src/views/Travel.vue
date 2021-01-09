@@ -1,6 +1,6 @@
 <template>
   <div class="travel">
-    <h1>This is an travel page</h1>
+    <h1>Travel Journey</h1>
     <div class="list">
       <travel-list></travel-list>
     </div>

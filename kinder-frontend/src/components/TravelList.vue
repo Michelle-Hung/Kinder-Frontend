@@ -1,6 +1,6 @@
 <template>
     <el-row>
-        <el-col :span="4" v-for="photo in 6" :key="photo" :offset="3" style="padding-bottom: 20px">
+        <el-col :span="4" v-for="photo in 1" :key="photo" :offset="3" style="padding-bottom: 20px">
             <el-card :body-style="{ padding: '0px' }">
             <img :src="imagePath" class="image">
             <div style="padding: 14px;">
