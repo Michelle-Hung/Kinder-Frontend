@@ -1,12 +1,13 @@
 <template>
     <el-row>
         <el-col :span="4" v-for="photo in 1" :key="photo" :offset="3" style="padding-bottom: 20px">
+
             <el-card :body-style="{ padding: '0px' }">
             <img :src="imagePath" class="image">
             <div style="padding: 14px;">
-                <span>武嶺</span>
+                <span>{{ attraction }}</span>
                 <div class="bottom clearfix">
-                <time class="time">{{ currentDate }}</time>
+                <time class="time">{{ travelDate }}</time>
                 <el-button type="text" class="button">more</el-button>
                 </div>
             </div>
@@ -23,9 +24,22 @@ export default {
   },
   data() {
     return {
-      currentDate: new Date(),
-      imagePath: require('@/assets/images/Wuling.jpeg')
+      travelDate: new Date(),
+      imagePath: require('@/assets/images/Wuling.jpeg'),
+      attraction: '',
+
     };
+  },
+  mounted() {
+    this.GetTravelData()
+  },
+  methods: {
+    async GetTravelData() {
+      await axios.get('https://localhost:5001/Travel/GetTravelData')
+      .then((response) => {
+        console.log(response.data)
+      });
+    }
   }
 }
 </script>
