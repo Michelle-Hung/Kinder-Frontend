@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: 'TravelList',
   props: {
@@ -26,20 +27,24 @@ export default {
     return {
       travelDate: new Date(),
       imagePath: require('@/assets/images/Wuling.jpeg'),
-      attraction: '',
+      attraction: '武嶺',
 
     };
   },
   mounted() {
-    this.GetTravelData()
+    //this.GetTravelData()
   },
   methods: {
-    async GetTravelData() {
-      await axios.get('https://localhost:5001/Travel/GetTravelData')
+    /*
+    GetTravelData() {
+      axios.get('https://localhost:5001/MyTravel/GetTravelData')
       .then((response) => {
-        console.log(response.data)
+        alert(response.data)
+      }).catch((error) => {
+        alert(error)
       });
     }
+    */
   }
 }
 </script>
