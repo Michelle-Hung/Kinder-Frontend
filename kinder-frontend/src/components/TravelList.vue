@@ -25,6 +25,21 @@ export default {
   },
   data() {
     return {
+      travelDatas: {
+        success:Boolean,
+        errorMessage: String,
+        travelDetail: {
+          id: Number,
+          attraction: String,
+          address: String,
+          startDate: Date,
+          endDate: Date,
+          context: String,
+          createdOn: Date,
+          modifiedOn: Date
+        }
+      },
+      //travelDetail: {},
       travelDate: new Date(),
       imagePath: require('@/assets/images/Wuling.jpeg'),
       attraction: '武嶺',
@@ -32,19 +47,21 @@ export default {
     };
   },
   mounted() {
-    //this.GetTravelData()
+    this.GetTravelData()
   },
   methods: {
-    /*
+    
     GetTravelData() {
       axios.get('https://localhost:5001/MyTravel/GetTravelData')
       .then((response) => {
-        alert(response.data)
+        this.travelDatas = response.data
+        console.log(this.travelDatas.success)
+        console.log(this.travelDatas.travelDetail)
       }).catch((error) => {
         alert(error)
       });
     }
-    */
+    
   }
 }
 </script>
