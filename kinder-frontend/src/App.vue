@@ -18,15 +18,14 @@
 
 <script>
 export default {
-  data() {
-    return {
-      activeIndex: '/'
-    };
-  },
-  methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    }
+  setup() {
+
+    const activeIndex = '/'
+
+    const handleSelect = (key, keyPath) => {
+      console.log(key, keyPath)
+    } 
+    return {activeIndex, handleSelect}
   }
 }
 </script>
