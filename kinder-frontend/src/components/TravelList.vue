@@ -2,7 +2,7 @@
     <el-row>
         <el-col :span="4" v-for="travel in travelDatas" :key="travel.id" :offset="3" style="padding-bottom: 20px">
             <el-card :body-style="{ padding: '0px' }">
-            <img :src="imagePath" class="image">
+            <img :src="require('@/assets/images/Wuling.jpeg')" class="image">
             <div style="padding: 14px;">
                 <span>{{ travel.attraction }}</span>
                 <div class="bottom clearfix">
@@ -22,7 +22,7 @@ export default {
   name: 'TravelList',
   setup() {
     const travelDatas = ref({})
-    const imagePath = require('@/assets/images/Wuling.jpeg')
+    //const imagePath = require('@/assets/images/Wuling.jpeg')
 
     const loadTravelDatas = async () => {
       await axios.get('https://localhost:5001/MyTravel/GetTravelData')
@@ -40,7 +40,7 @@ export default {
 
     loadTravelDatas()
 
-    return { imagePath, travelDatas }
+    return { travelDatas }
   }
 }
 </script>
