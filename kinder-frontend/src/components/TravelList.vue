@@ -1,13 +1,12 @@
 <template>
     <el-row>
-        <el-col :span="4" v-for="photo in 1" :key="photo" :offset="3" style="padding-bottom: 20px">
-
+        <el-col :span="4" v-for="travelData in travelDatas" :key="travelData.id" :offset="3" style="padding-bottom: 20px">
             <el-card :body-style="{ padding: '0px' }">
             <img :src="imagePath" class="image">
             <div style="padding: 14px;">
-                <span>{{ attraction }}</span>
+                <span>{{ travelData.attraction }}</span>
                 <div class="bottom clearfix">
-                <time class="time">{{ travelDate }}</time>
+                <time class="time" format="YYYY/MM/DD">{{ travelData.startDate }}</time>
                 <el-button type="text" class="button">more</el-button>
                 </div>
             </div>
@@ -18,50 +17,30 @@
 
 <script>
 import axios from "axios";
+import { onMounted, ref } from '@vue/runtime-core';
 export default {
   name: 'TravelList',
-  props: {
-    
-  },
-  data() {
-    return {
-      travelDatas: {
-        success:Boolean,
-        errorMessage: String,
-        travelDetail: {
-          id: Number,
-          attraction: String,
-          address: String,
-          startDate: Date,
-          endDate: Date,
-          context: String,
-          createdOn: Date,
-          modifiedOn: Date
-        }
-      },
-      //travelDetail: {},
-      travelDate: new Date(),
-      imagePath: require('@/assets/images/Wuling.jpeg'),
-      attraction: '武嶺',
+  setup() {
+    const travelDatas = ref({})
+    const imagePath = require('@/assets/images/Wuling.jpeg')
 
-    };
-  },
-  mounted() {
-    this.GetTravelData()
-  },
-  methods: {
-    
-    GetTravelData() {
-      axios.get('https://localhost:5001/MyTravel/GetTravelData')
+    const loadTravelDatas = async () => {
+      await axios.get('https://localhost:5001/MyTravel/GetTravelData')
       .then((response) => {
-        this.travelDatas = response.data
-        console.log(this.travelDatas.success)
-        console.log(this.travelDatas.travelDetail)
+        if (!response.data.success) {
+          alert(response.data.errorMessage)
+        }else{
+          travelDatas.value = response.data.travelDetail
+        }
       }).catch((error) => {
-        alert(error)
+        alert('Unexpected Error: ', error.message)
+        console.log(error)
       });
     }
-    
+
+    loadTravelDatas()
+
+    return { imagePath, travelDatas }
   }
 }
 </script>
