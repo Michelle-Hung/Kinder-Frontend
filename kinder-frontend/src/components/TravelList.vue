@@ -1,12 +1,12 @@
 <template>
     <el-row>
-        <el-col :span="4" v-for="travelData in travelDatas" :key="travelData.id" :offset="3" style="padding-bottom: 20px">
+        <el-col :span="4" v-for="travel in travelDatas" :key="travel.id" :offset="3" style="padding-bottom: 20px">
             <el-card :body-style="{ padding: '0px' }">
             <img :src="imagePath" class="image">
             <div style="padding: 14px;">
-                <span>{{ travelData.attraction }}</span>
+                <span>{{ travel.attraction }}</span>
                 <div class="bottom clearfix">
-                <time class="time" format="YYYY/MM/DD">{{ travelData.startDate }}</time>
+                <time class="time" format="YYYY/MM/DD">{{ travel.startDate }}</time>
                 <el-button type="text" class="button">more</el-button>
                 </div>
             </div>
