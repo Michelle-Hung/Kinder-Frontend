@@ -21,7 +21,7 @@ import { ref } from '@vue/runtime-core';
 export default {
   name: 'TravelList',
   setup() {
-    const travelDatas = ref({})
+    const travelDatas = ref()
     //const imagePath = require('@/assets/images/Wuling.jpeg')
 
     const loadTravelDatas = async () => {
