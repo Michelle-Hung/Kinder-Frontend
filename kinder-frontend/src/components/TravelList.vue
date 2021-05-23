@@ -17,7 +17,7 @@
 
 <script>
 import axios from "axios";
-import { onMounted, ref } from '@vue/runtime-core';
+import { ref } from '@vue/runtime-core';
 export default {
   name: 'TravelList',
   setup() {
