@@ -6,5 +6,13 @@ describe('TravelList Test', () => {
         var wrapper = mount(TravelList)
         wrapper.vm.loadTravelDatas = jest.fn()
         expect(() => wrapper.vm.loadTravelDatas()).toBeCalledTimes(1);
+
+        /* try
+        const loadTravelDatas = jest.fn()
+        const wrapper = shallowMount(TravelList,{
+          setup:{loadTravelDatas}
+        });
+        expect(loadTravelDatas).toHaveBeenCalled();
+        */
       });
 })
