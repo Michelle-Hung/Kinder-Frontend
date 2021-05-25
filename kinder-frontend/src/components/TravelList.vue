@@ -24,7 +24,7 @@ export default {
     const travelDatas = ref()
     //const imagePath = require('@/assets/images/Wuling.jpeg')
 
-    const loadTravelDatas = async () => {
+    async function loadTravelDatas() {
       await axios.get('https://localhost:5001/MyTravel/GetTravelData')
       .then((response) => {
         if (!response.data.success) {
