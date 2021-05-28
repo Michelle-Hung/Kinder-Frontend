@@ -18,27 +18,14 @@
 <script>
 import axios from "axios";
 import { ref } from '@vue/runtime-core';
+import getTravelDatas from '../composables/GetTravelDatas'
 export default {
   name: 'TravelList',
   setup() {
-    const travelDatas = ref()
     //const imagePath = require('@/assets/images/Wuling.jpeg')
+    const {travelDatas, load} = getTravelDatas()
 
-    async function loadTravelDatas() {
-      await axios.get('https://localhost:5001/MyTravel/GetTravelData')
-      .then((response) => {
-        if (!response.data.success) {
-          alert(response.data.errorMessage)
-        }else{
-          travelDatas.value = response.data.travelDetail
-        }
-      }).catch((error) => {
-        alert('Unexpected Error: ', error.message)
-        console.log(error)
-      });
-    }
-
-    loadTravelDatas()
+    load()
 
     return { travelDatas }
   }
