@@ -16,8 +16,6 @@
 </template>
 
 <script>
-import axios from "axios";
-import { ref } from '@vue/runtime-core';
 import getTravelDatas from '../composables/GetTravelDatas'
 export default {
   name: 'TravelList',
