@@ -18,3 +18,5 @@ const getTravelDatas = () => {
     }
     return { travelDatas, load }
 }
+
+export default getTravelDatas
