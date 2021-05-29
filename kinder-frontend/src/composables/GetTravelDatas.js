@@ -1,10 +1,9 @@
 import axios from "axios";
 import { ref } from '@vue/runtime-core';
 
-const getTravelDatas = () => {
+const getTravelDatas =  () => {
     const travelDatas = ref()
-    const load = async () => {
-        await axios.get('https://localhost:5001/MyTravel/GetTravelData')
+        axios.get('https://localhost:5001/MyTravel/GetTravelData')
         .then((response) => {
         if (!response.data.success) {
             alert(response.data.errorMessage)
@@ -15,8 +14,7 @@ const getTravelDatas = () => {
         alert('Unexpected Error: ', error.message)
         console.log(error)
         });
-    }
-    return { travelDatas, load }
+    return { travelDatas }
 }
 
 export default getTravelDatas
