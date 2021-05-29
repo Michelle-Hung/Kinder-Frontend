@@ -16,16 +16,14 @@
 </template>
 
 <script>
-import { ref } from '@vue/reactivity'
 import getTravelDatas from '../composables/GetTravelDatas'
 export default {
   name: 'TravelList',
   setup() {
     //const imagePath = require('@/assets/images/Wuling.jpeg')
 
-    //const {travelDatas} = getTravelDatas() Can work, but test will showld "TypeError: Cannot destructure property 'travelDatas' of '(0 , _GetTravelDatas.default)(...)' as it is undefined."
-    const travelDatas = ref()
-    travelDatas.value = getTravelDatas()
+  
+    const { travelDatas } = getTravelDatas()
 
     return { travelDatas }
   }
