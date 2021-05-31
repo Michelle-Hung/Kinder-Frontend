@@ -13,7 +13,7 @@
           <span>{{ travel.attraction }}</span>
           <div class="bottom clearfix">
             <time class="time" format="YYYY/MM/DD">{{ travel.startDate }}</time>
-            <el-button type="text" class="button">more</el-button>
+            <el-button type="text" class="button" @click="GoToTravelDetailPage(travel.id)">more</el-button>
           </div>
         </div>
       </el-card>
@@ -22,15 +22,24 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity';
+import { useRouter } from "vue-router";
 import getTravelDatas from '../composables/GetTravelDatas'
 export default {
   name: 'TravelList',
   setup() {
     //const imagePath = require('@/assets/images/Wuling.jpeg')
+    const travelDatas = ref(null)
+    travelDatas.value = getTravelDatas();
+    const router = useRouter();
 
-    const { travelDatas } = getTravelDatas();
+    function GoToTravelDetailPage(acctractionId) {
+      router.push({ path: `/travelDetail/${acctractionId}` })
+      //travelDatas.value.filter((travelData) => travelData.id == acctractionId)
+    }
 
-    return { travelDatas };
+    
+    return { travelDatas, GoToTravelDetailPage };
   },
 };
 </script>
