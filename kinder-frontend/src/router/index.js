@@ -4,7 +4,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
+    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
   },
   {
     path: '/about',
@@ -18,6 +18,11 @@ const routes = [
     path: '/travel',
     name: 'Travel',
     component: () => import('../views/Travel.vue')
+  },
+  {
+    //TODO: when I am at travel detail page, then click travel or about tab, the route will be wrong
+    path: '/travelDetail/:id',
+    component: () => import('../components/TravelDetail.vue')
   }
 ]
 
