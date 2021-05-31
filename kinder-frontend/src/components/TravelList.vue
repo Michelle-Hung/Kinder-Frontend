@@ -1,5 +1,4 @@
 <template>
-  <el-input placeholder="Searching..." v-model="input" clearable size="small"> </el-input>
   <el-row>
     <el-col
       :span="4"
