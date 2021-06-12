@@ -24,13 +24,13 @@
 <script>
 import { ref } from '@vue/reactivity';
 import { useRouter } from "vue-router";
-import getTravelDatas from '../composables/GetTravelDatas'
+import { getTravelDatas } from '../composables/GetTravelDatas'
 export default {
   name: 'TravelList',
   setup() {
     //const imagePath = require('@/assets/images/Wuling.jpeg')
-    const travelDatas = ref(null)
-    travelDatas.value = getTravelDatas();
+    
+    const { travelDatas } = getTravelDatas();
     const router = useRouter();
 
     function GoToTravelDetailPage(acctractionId) {

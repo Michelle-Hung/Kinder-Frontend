@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ref } from '@vue/runtime-core';
 
-const getTravelDatas =  () => {
+export function getTravelDatas() {
     const travelDatas = ref()
         axios.get('https://localhost:5001/MyTravel/GetTravelData')
         .then((response) => {
@@ -16,5 +16,3 @@ const getTravelDatas =  () => {
         });
     return { travelDatas }
 }
-
-export default getTravelDatas
