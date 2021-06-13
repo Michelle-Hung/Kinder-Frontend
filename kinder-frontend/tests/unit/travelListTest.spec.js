@@ -15,10 +15,8 @@ const wrapper = shallowMount(TravelList, {
 
 describe('TravelList Test', () => {
     test('load travel list vue should call GetTravelData method', () => {
-        //TODO : fix can't mount DOM when "const {travelDatas} = getTravelDatas "
-        //shallowMount(TravelList)
         expect(getTravelDatas).toHaveBeenCalled();
-        
+
       }),
       test('click more will call GoToTravelDetailPage', () => {
         wrapper.vm.GoToTravelDetailPage = jest.fn()
