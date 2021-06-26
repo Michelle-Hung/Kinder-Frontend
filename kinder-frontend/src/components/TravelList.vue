@@ -7,7 +7,7 @@
       :offset="3"
       style="padding-bottom: 20px"
     >
-      <el-card :body-style="{ padding: '0px' }">
+      <el-card :body-style="{ padding: '0px' }" shadow="hover">
         <img :src="require('@/assets/images/Wuling.jpeg')" class="image" />
         <div style="padding: 14px">
           <span>{{ travel.attraction }}</span>
@@ -25,7 +25,9 @@
 import { ref } from '@vue/reactivity';
 import { useRouter } from "vue-router";
 import { getTravelDatas } from '../composables/GetTravelDatas'
+import { ElRow, ElCol, ElCard, ElButton } from 'element-plus';
 export default {
+  components: { 'el-row':ElRow, 'el-col':ElCol, 'el-card':ElCard, 'el-button':ElButton },
   name: 'TravelList',
   setup() {
     //const imagePath = require('@/assets/images/Wuling.jpeg')
