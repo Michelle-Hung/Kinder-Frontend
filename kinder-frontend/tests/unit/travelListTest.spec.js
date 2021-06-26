@@ -11,7 +11,7 @@ describe('TravelList Test', () => {
     test('load travel list vue should call GetTravelData method', () => {
       require('../../src/composables/GetTravelDatas').getTravelDatas.mockReturnValue([])
       require('vue-router').useRouter.mockReturnValue({})
-      const wrapper = shallowMount(TravelList, {
+      const wrapper = mount(TravelList, {
         global: {
             plugins: [ElementPlus]
         }
@@ -22,13 +22,12 @@ describe('TravelList Test', () => {
     test('click more will call GoToTravelDetailPage', () => {
       require('../../src/composables/GetTravelDatas').getTravelDatas.mockReturnValue([])
       require('vue-router').useRouter.mockReturnValue({})
-      const wrapper = shallowMount(TravelList, {
+      const wrapper = mount(TravelList, {
         global: {
             plugins: [ElementPlus]
         }
       });
       wrapper.vm.GoToTravelDetailPage = jest.fn()
-      console.log(wrapper.html())
       wrapper.find('.el-button').trigger('click')
       //wrapper.findComponent({ ref: 'MoreTravelDataButton' }).trigger('click')
       expect(wrapper.vm.GoToTravelDetailPage).toHaveBeenCalled()
