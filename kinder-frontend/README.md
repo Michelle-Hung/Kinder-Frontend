@@ -22,7 +22,7 @@ yarn lint
 ```
 
 ### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Reference [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 ## How to create a vue3 project
@@ -58,3 +58,54 @@ or
 npm run serve
 ```
 
+## How to install cypress in vue3 project
+Reference [Cypress document](https://www.cypress.io/blog/2021/04/06/getting-start-with-cypress-component-testing-vue-2-3/).
+
+Step1. install cypress with yarn or npm
+```
+# Vue 2
+yarn add cypress @cypress/vue @cypress/webpack-dev-server --dev
+
+# Vue 3
+npm install cypress @cypress/vue@next @cypress/webpack-dev-server --dev
+yarn add cypress @cypress/vue@next @cypress/webpack-dev-server --dev
+```
+
+Step2. Create a plugins file. By default this goes in ```cypress/plugins/index.js```
+
+![cypress plugin configuration](https://user-images.githubusercontent.com/48158642/128603338-71ede02f-f318-4aa9-b29e-4ddc236d30f6.png)
+
+
+Step3. Create a json file to tell Cypress where and how to find tests
+
+![Cypress.json](https://user-images.githubusercontent.com/48158642/128603750-d92733e7-dddc-4204-9ae3-75fd3faa9195.png)
+
+
+Step4. Opening Cypress
+
+The long way with the full path
+```./node_modules/.bin/cypress open```
+
+The shortcut using npm bin
+```$(npm bin)/cypress open```
+
+Using npx
+```
+# npx is included with npm > v5.2 or can be installed separately
+npx cypress open
+```
+
+Using yarn
+```yarn run cypress open```
+
+The Cypress Test Runner
+![cypress test runner dashboard](https://user-images.githubusercontent.com/48158642/128603899-63f65ca2-6d0c-457c-a1ed-0b991d0f2f6d.png)
+
+Open the component test runner
+```
+yarn cypress open-ct 
+# or 
+npx cypress open-ct
+# npx is included with npm > v5.2 or can be installed separately
+```
+![image](https://user-images.githubusercontent.com/48158642/128604037-30383aa8-b6eb-4c1c-a380-40428028ba91.png)
