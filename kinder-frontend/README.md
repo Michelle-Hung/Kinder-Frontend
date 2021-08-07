@@ -81,10 +81,7 @@ Step3. Create a json file to tell Cypress where and how to find tests
 ![Cypress.json](https://user-images.githubusercontent.com/48158642/128603750-d92733e7-dddc-4204-9ae3-75fd3faa9195.png)
 
 
-Step4. Run Cypress test
-
-
-Opening Cypress
+Step4. Opening Cypress
 
 The long way with the full path
 ```./node_modules/.bin/cypress open```
