@@ -11,7 +11,7 @@ describe('TravelList Test', () => {
     test('load travel list vue should call GetTravelData method', () => {
       require('../../src/composables/GetTravelDatas').getTravelDatas.mockReturnValue([])
       require('vue-router').useRouter.mockReturnValue({})
-      const wrapper = mount(TravelList, {
+      const wrapper = shallowMount(TravelList, {
         global: {
             plugins: [ElementPlus]
         }
@@ -22,7 +22,7 @@ describe('TravelList Test', () => {
     test('click more will call GoToTravelDetailPage', () => {
       require('../../src/composables/GetTravelDatas').getTravelDatas.mockReturnValue([])
       require('vue-router').useRouter.mockReturnValue({})
-      const wrapper = mount(TravelList, {
+      const wrapper = shallowMount(TravelList, {
         global: {
             plugins: [ElementPlus]
         }
