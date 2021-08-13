@@ -97,19 +97,20 @@ Using npx
 ```
 # npx is included with npm > v5.2 or can be installed separately
 npx cypress open
+# or
+npx cypress open-ct
 ```
 
 Using yarn
-```yarn run cypress open```
+```
+yarn run cypress open
+# or
+yarn cypress open-ct
+```
 
 The Cypress Test Runner
 ![cypress test runner dashboard](https://user-images.githubusercontent.com/48158642/128603899-63f65ca2-6d0c-457c-a1ed-0b991d0f2f6d.png)
 
 Open the component test runner
-```
-yarn cypress open-ct 
-# or 
-npx cypress open-ct
-# npx is included with npm > v5.2 or can be installed separately
-```
+
 ![image](https://user-images.githubusercontent.com/48158642/128604037-30383aa8-b6eb-4c1c-a380-40428028ba91.png)
