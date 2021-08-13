@@ -78,6 +78,10 @@ Step2. Create a plugins file. By default this goes in ```cypress/plugins/index.j
 
 Step3. Create a json file to tell Cypress where and how to find tests
 
+Reference [Cypress configuration document](https://docs.cypress.io/guides/references/configuration#cypress-json).
+
+Default ```testFiles``` configuration: ```**/*.*```
+
 ![Cypress.json](https://user-images.githubusercontent.com/48158642/128603750-d92733e7-dddc-4204-9ae3-75fd3faa9195.png)
 
 
