@@ -114,3 +114,8 @@ The Cypress Test Runner
 Open the component test runner
 
 ![image](https://user-images.githubusercontent.com/48158642/128604037-30383aa8-b6eb-4c1c-a380-40428028ba91.png)
+
+#### Run Cypress on terminal
+```
+yarn cypress run
+```
