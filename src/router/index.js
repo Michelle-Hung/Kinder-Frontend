@@ -21,7 +21,7 @@ const routes = [
   },
   {
     //TODO: when I am at travel detail page, then click travel or about tab, the route will be wrong
-    path: '/travelDetail/:id',
+    path: '/travel/:id',
     component: () => import('../components/TravelDetail.vue')
   }
 ]

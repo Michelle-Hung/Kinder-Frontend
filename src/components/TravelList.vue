@@ -34,7 +34,7 @@ export default {
     const router = useRouter();
 
     function GoToTravelDetailPage(acctractionId) {
-      router.push({ path: `/travelDetail/${acctractionId}` })
+      router.push({ path: `/travel/${acctractionId}` })
       //travelDatas.value.filter((travelData) => travelData.id == acctractionId)
     }
 
