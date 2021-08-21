@@ -78,6 +78,10 @@ Step2. Create a plugins file. By default this goes in ```cypress/plugins/index.j
 
 Step3. Create a json file to tell Cypress where and how to find tests
 
+Reference [Cypress configuration document](https://docs.cypress.io/guides/references/configuration#cypress-json).
+
+Default ```testFiles``` configuration: ```**/*.*```
+
 ![Cypress.json](https://user-images.githubusercontent.com/48158642/128603750-d92733e7-dddc-4204-9ae3-75fd3faa9195.png)
 
 
@@ -93,19 +97,26 @@ Using npx
 ```
 # npx is included with npm > v5.2 or can be installed separately
 npx cypress open
+# or
+npx cypress open-ct
 ```
 
 Using yarn
-```yarn run cypress open```
+```
+yarn run cypress open
+# or
+yarn cypress open-ct
+```
 
 The Cypress Test Runner
 ![cypress test runner dashboard](https://user-images.githubusercontent.com/48158642/128603899-63f65ca2-6d0c-457c-a1ed-0b991d0f2f6d.png)
 
 Open the component test runner
-```
-yarn cypress open-ct 
-# or 
-npx cypress open-ct
-# npx is included with npm > v5.2 or can be installed separately
-```
+
 ![image](https://user-images.githubusercontent.com/48158642/128604037-30383aa8-b6eb-4c1c-a380-40428028ba91.png)
+
+#### Run Cypress on terminal
+```
+yarn cypress run
+```
+Also can reference [the offical document](https://docs.cypress.io/guides/guides/launching-browsers#Browsers).
