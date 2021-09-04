@@ -125,3 +125,4 @@ Also can reference [the offical document](https://docs.cypress.io/guides/guides/
 ```
 /// <reference types="Cypress" />
 ```
+![image](https://user-images.githubusercontent.com/48158642/132098862-1ed0e6dc-72fb-46b9-946c-002848d4d5c7.png)
