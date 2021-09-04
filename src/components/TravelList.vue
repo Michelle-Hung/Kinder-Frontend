@@ -8,7 +8,7 @@
       style="padding-bottom: 20px"
     >
       <el-card :body-style="{ padding: '0px' }" shadow="hover">
-        <img src="../assets/images/Wuling.jpeg" class="image" />
+        <img src="../assets/images/Wuling.jpeg" class="image" /> <!--TODO: img from backend-->
         <div style="padding: 14px">
           <span>{{ travel.attraction }}</span>
           <div class="bottom clearfix">
