@@ -120,3 +120,8 @@ Open the component test runner
 yarn cypress run
 ```
 Also can reference [the offical document](https://docs.cypress.io/guides/guides/launching-browsers#Browsers).
+
+#### Cypress intelligent code suggestion
+```
+/// <reference types="Cypress" />
+```
