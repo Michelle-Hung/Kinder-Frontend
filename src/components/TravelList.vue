@@ -12,7 +12,7 @@
         <div style="padding: 14px">
           <span>{{ travel.attraction }}</span>
           <div class="bottom clearfix">
-            <time class="time" format="YYYY/MM/DD">{{ travel.startDate }}</time>
+            <time class="time">{{ dateFormat(travel.startDate) }}</time>
             <el-button type="text" class="button" @click="GoToTravelDetailPage(travel.id)">more</el-button>
           </div>
         </div>
@@ -24,7 +24,9 @@
 <script>
 import { ref } from '@vue/reactivity';
 import { useRouter } from "vue-router";
-import getTravelList from '../composables/GetTravelList'
+import getTravelList from '../composables/GetTravelList';
+import dateFormat from '../composables/DateFormat';
+import moment from 'moment';
 export default {
   name: 'TravelList',
   setup() {
@@ -37,9 +39,8 @@ export default {
       router.push({ path: `/travel/${acctractionId}` })
       //travelDatas.value.filter((travelData) => travelData.id == acctractionId)
     }
-
     
-    return { travelList, GoToTravelDetailPage };
+    return { travelList, GoToTravelDetailPage, dateFormat};
   },
 };
 </script>
