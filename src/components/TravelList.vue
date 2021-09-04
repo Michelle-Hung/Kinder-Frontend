@@ -26,7 +26,6 @@ import { ref } from '@vue/reactivity';
 import { useRouter } from "vue-router";
 import getTravelList from '../composables/GetTravelList';
 import dateFormat from '../composables/DateFormat';
-import moment from 'moment';
 export default {
   name: 'TravelList',
   setup() {

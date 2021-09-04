@@ -10,18 +10,22 @@
     active-text-color="#ffd04b">
     
     <el-menu-item index="/" route=""> Home </el-menu-item>
-    <el-menu-item index="travel" route="Travel"> Travel </el-menu-item>
-    <el-menu-item index="about" route="About"> About </el-menu-item>
+    <el-menu-item index="/travel" route="Travel"> Travel </el-menu-item>
+    <el-menu-item index="/about" route="About"> About </el-menu-item>
   </el-menu>
   <router-view/>
 </template>
 
 <script>
+import { ref } from '@vue/reactivity'
+import { useRoute } from "vue-router";
+import { computed } from '@vue/runtime-core';
 export default {
   setup() {
 
-    const activeIndex = '/'
-
+    const route = useRoute();
+    
+    const activeIndex = computed(() => route.path);
     const handleSelect = (key, keyPath) => {
       console.log(key, keyPath)
     } 
