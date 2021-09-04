@@ -1,15 +1,15 @@
 import { mount, shallowMount } from '@vue/test-utils'
 import TravelList from '../../src/components/TravelList.vue'
-import getTravelDatas from '../../src/composables/GetTravelDatas'
+import getTravelList from '../../src/composables/GetTravelList'
 import ElementPlus from 'element-plus'
 import { useRouter } from 'vue-router'
 
-jest.mock('../../src/composables/GetTravelDatas');
+jest.mock('../../src/composables/GetTravelList');
 jest.mock('vue-router');
 
 describe('TravelList Test', () => {
   beforeAll(() => {
-    getTravelDatas.mockReturnValue([]);
+    getTravelList.mockReturnValue([]);
     useRouter.mockReturnValue({});
   });
   
@@ -19,7 +19,7 @@ describe('TravelList Test', () => {
           plugins: [ElementPlus]
       }
     });
-    expect(getTravelDatas).toHaveBeenCalled();
+    expect(getTravelList).toHaveBeenCalled();
 
   });
   test('click more will call GoToTravelDetailPage', () => {

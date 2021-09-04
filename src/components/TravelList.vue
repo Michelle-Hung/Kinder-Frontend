@@ -2,7 +2,7 @@
   <el-row>
     <el-col
       :span="4"
-      v-for="travel in travelDatas"
+      v-for="travel in travelList"
       :key="travel.id"
       :offset="3"
       style="padding-bottom: 20px"
@@ -24,13 +24,13 @@
 <script>
 import { ref } from '@vue/reactivity';
 import { useRouter } from "vue-router";
-import getTravelDatas from '../composables/GetTravelDatas'
+import getTravelList from '../composables/GetTravelList'
 export default {
   name: 'TravelList',
   setup() {
     //const imagePath = require('@/assets/images/Wuling.jpeg')
     
-    const { travelDatas } = getTravelDatas();
+    const { travelList } = getTravelList();
     const router = useRouter();
 
     function GoToTravelDetailPage(acctractionId) {
@@ -39,7 +39,7 @@ export default {
     }
 
     
-    return { travelDatas, GoToTravelDetailPage };
+    return { travelList, GoToTravelDetailPage };
   },
 };
 </script>
