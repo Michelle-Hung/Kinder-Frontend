@@ -10,7 +10,7 @@
                 <!--<div class="grid-content bg-purple-light"></div>-->
                 <span class="right"> Date:{{ dateFormat(detail.startDate) }} </span>
                 <br/>
-                <p> {{ detail.context }} </p>
+                <p class="word-break"> {{ detail.context }} </p>
             </el-col>
             <el-col :xs="4" :sm="6" :md="6" :lg="3" :xl="2">
                 <!-- <div class="grid-content bg-purple-light"></div> -->
@@ -38,21 +38,24 @@ export default {
 @import url("//unpkg.com/element-plus/dist/index.css");
 .el-col {
     border-radius: 4px;
-  }
+}
   .bg-purple-dark {
     background: #99a9bf;
-  }
+}
   .bg-purple {
     background: #d3dce6;
-  }
+}
   .bg-purple-light {
     background: #e5e9f2;
-  }
+}
   .grid-content {
     border-radius: 4px;
     min-height: 36px;
-  }
+}
 .right{
     float: right;
-  }
+}
+.word-break{
+    word-wrap:break-word;
+}
 </style>

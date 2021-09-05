@@ -13,6 +13,7 @@
           <span>{{ travel.attraction }}</span>
           <div class="bottom clearfix">
             <time class="time">{{ dateFormat(travel.startDate) }}</time>
+            <br/>
             <el-button type="text" class="button" @click="GoToTravelDetailPage(travel.id)">more</el-button>
           </div>
         </div>
