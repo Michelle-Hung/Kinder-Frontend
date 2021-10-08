@@ -1,6 +1,6 @@
 <template>
   <el-menu
-    :router="true"
+    :router="false"
     :default-active="activeIndex"
     class="el-menu-demo"
     mode="horizontal"
@@ -18,17 +18,22 @@
 
 <script>
 import { ref } from '@vue/reactivity'
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { computed } from '@vue/runtime-core';
 export default {
   setup() {
 
     const route = useRoute();
+    const router = useRouter();
     
-    const activeIndex = computed(() => route.path);
+    var activeIndex = "/";
+
     const handleSelect = (key, keyPath) => {
       console.log(key, keyPath)
-    } 
+      activeIndex = key;
+      router.push(key)
+    }
+    console.log(activeIndex) 
     return {activeIndex, handleSelect}
   }
 }
