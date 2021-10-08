@@ -24,7 +24,7 @@
 
 <script>
 import { ref } from '@vue/reactivity';
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import getTravelList from '../composables/GetTravelList';
 import dateFormat from '../composables/DateFormat';
 export default {
@@ -34,10 +34,10 @@ export default {
     
     const { travelList } = getTravelList();
     const router = useRouter();
+    const route = useRoute();
 
     function GoToTravelDetailPage(acctractionId) {
-      router.push({ path: `/travel/${acctractionId}` })
-      //travelDatas.value.filter((travelData) => travelData.id == acctractionId)
+      router.push({ path: `${route.path}/${acctractionId}` })
     }
     
     return { travelList, GoToTravelDetailPage, dateFormat};
