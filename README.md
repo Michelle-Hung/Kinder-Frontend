@@ -1,7 +1,8 @@
 # kinder-frontend
 A practiced frontend project with vue3
 
-Using Vue3, jest, cypress, element ui plus
+Usint typescript, vuex
+![image](https://user-images.githubusercontent.com/48158642/147388020-252aacdd-007a-4ea3-89a0-032f88440f26.png)
 
 ## Project setup
 ```
