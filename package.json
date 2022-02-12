@@ -41,6 +41,7 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
     "@vue/test-utils": "^2.0.0-0",
+    "@vue/vue3-jest": "^27.0.0-alpha.4",
     "cypress": "^8.3.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -94,7 +95,7 @@
   "jest": {
     "preset": "@vue/cli-plugin-unit-jest/presets/typescript-and-babel",
     "transform": {
-      "^.+\\.vue$": "vue-jest"
+      "^.+\\.vue$": "@vue/vue3-jest"
     }
   }
 }
