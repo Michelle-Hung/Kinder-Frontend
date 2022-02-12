@@ -1,19 +1,19 @@
 <template>
   <!-- <hello-world /> -->
-  <Chat/>
+  <Chat />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 // import HelloWorld from '../components/HelloWorld.vue';
 import Chat from "../components/Chat.vue";
 
 export default defineComponent({
-  name: 'Home',
+  name: "Home",
 
   components: {
     // HelloWorld,
-    Chat
+    Chat,
   },
 });
 </script>

@@ -13,13 +13,7 @@
       clearable
       placeholder="input message..."
     ></v-text-field>
-    <v-btn
-      rounded="pill"
-      color="primary"
-      @click="sendMessage"
-    >
-      Sending
-    </v-btn>
+    <v-btn rounded="pill" color="primary" @click="sendMessage"> Sending </v-btn>
   </v-container>
 </template>
 
@@ -36,21 +30,21 @@ export default {
         .withUrl("https://localhost:5001/ChatHub")
         .build();
     }
-    connection.start()
+    connection
+      .start()
       .then(() => {
         console.log("Connection Success");
         console.log("Listen Started");
         if (connection.state !== HubConnectionState.Connected) {
-            // this.connect().finally(() => {
-            // this.listen();
-            // return;});
-            console.log(connection.state);
+          // this.connect().finally(() => {
+          // this.listen();
+          // return;});
+          console.log(connection.state);
         }
-        connection.on("SendMessage",(res) => {
-            console.log(res);
-            messageContent.value = res
-            
-        })
+        connection.on("SendMessage", (res) => {
+          console.log(res);
+          messageContent.value = res;
+        });
       })
       .catch((err) => {
         console.log(`Connection Error ${err}`);
@@ -61,13 +55,13 @@ export default {
 
     const newMessage = ref("");
     const sendMessage = () => {
-        console.log("click send message button");
-        console.log(`newMessage:: ${newMessage.value}` );
-        connection.invoke("sendMessageAsync",newMessage.value).catch((error) => {
-            console.log(error)
-        });
-    }
-    return { newMessage, messageContent,  sendMessage };
+      console.log("click send message button");
+      console.log(`newMessage:: ${newMessage.value}`);
+      connection.invoke("sendMessageAsync", newMessage.value).catch((error) => {
+        console.log(error);
+      });
+    };
+    return { newMessage, messageContent, sendMessage };
   },
 };
 </script>
