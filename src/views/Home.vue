@@ -1,19 +1,17 @@
 <template>
-  <!-- <hello-world /> -->
   <Chat />
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-// import HelloWorld from '../components/HelloWorld.vue';
+import { Options, Vue } from "vue-class-component";
+import HelloWorld from "../components/HelloWorld.vue";
 import Chat from "../components/Chat.vue";
 
-export default defineComponent({
-  name: "Home",
-
+@Options({
   components: {
-    // HelloWorld,
+    HelloWorld,
     Chat,
   },
-});
+})
+export default class Home extends Vue {}
 </script>
