@@ -1,8 +1,26 @@
 <template>
-  <textarea v-model="messageContent"></textarea>
-  <br>
-  <input type="text" v-model="newMessage">
-  <button @click="sendMessage">send message</button>
+  <v-container fluid>
+    <v-textarea
+      name="input-7-1"
+      filled
+      label="Chat"
+      auto-grow
+      v-model="messageContent"
+    ></v-textarea>
+    <v-text-field
+      v-model="newMessage"
+      filled
+      clearable
+      placeholder="input message..."
+    ></v-text-field>
+    <v-btn
+      rounded="pill"
+      color="primary"
+      @click="sendMessage"
+    >
+      Sending
+    </v-btn>
+  </v-container>
 </template>
 
 <script>
