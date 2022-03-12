@@ -50,48 +50,21 @@
 </template>
 
 <script>
-import { HubConnectionState, HubConnectionBuilder } from "@microsoft/signalr";
 import { ref } from "vue";
+import { signalrInit } from "../services/SignalR";
 export default {
   name: "Chat",
   setup() {
-    const messageContent = ref([]);
-    let connection = null;
-    if (connection === null) {
-      connection = new HubConnectionBuilder()
-        .withUrl("https://localhost:5001/ChatHub")
-        .build();
-    }
-    connection
-      .start()
-      .then(() => {
-        if (connection.state !== HubConnectionState.Connected) {
-          // this.connect().finally(() => {
-          // this.listen();
-          // return;});
-          console.log(connection.state);
-        }
-        connection.on("SendMessage", (res) => {
-          messageContent.value.push(res);
-          console.log(
-            `receive message :: ${JSON.stringify(messageContent.value)}`
-          );
-        });
-      })
-      .catch((err) => {
-        console.log(`Connection Error ${err}`);
-      });
-    connection.onclose(() => {
-      console.log("Connection Destroy");
-    });
-
-    let newMessage = ref("");
+    const {connection, messageContent} = signalrInit();
+    
+    const newMessage = ref("");
     const sendMessage = () => {
       connection.invoke("sendMessageAsync", newMessage.value).catch((error) => {
         console.log(error);
       });
       newMessage.value = "";
     };
+
     const clearMessage = () => {
       newMessage.value = "";
     }
