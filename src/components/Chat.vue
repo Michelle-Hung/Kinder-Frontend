@@ -34,6 +34,7 @@
               type="text"
               append-icon="mdi:mdi-send"
               clearable
+              @click:clear="clearMessage"
             ></v-text-field>
             <v-btn
               icon="mdi:mdi-send"
@@ -84,13 +85,17 @@ export default {
       console.log("Connection Destroy");
     });
 
-    const newMessage = ref("");
+    let newMessage = ref("");
     const sendMessage = () => {
       connection.invoke("sendMessageAsync", newMessage.value).catch((error) => {
         console.log(error);
       });
+      newMessage.value = "";
     };
-    return { newMessage, messageContent, sendMessage };
+    const clearMessage = () => {
+      newMessage.value = "";
+    }
+    return { newMessage, messageContent, sendMessage, clearMessage };
   },
 };
 </script>
