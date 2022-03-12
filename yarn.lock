@@ -9521,10 +9521,10 @@
   "resolved" "https://registry.npmmirror.com/vue-class-component/download/vue-class-component-8.0.0-rc.1.tgz"
   "version" "8.0.0-rc.1"
 
-"vue-cli-plugin-vuetify@~2.4.5":
-  "integrity" "sha512-CnCVzG6iZAsMMqTkijZ0gRkPB6s4zHPWyFX1VpBBKVyxZESayQhUoMCZRZUOZNjvvZpq1LPgviq+8zcliSu73g=="
-  "resolved" "https://registry.npmjs.org/vue-cli-plugin-vuetify/-/vue-cli-plugin-vuetify-2.4.5.tgz"
-  "version" "2.4.5"
+"vue-cli-plugin-vuetify@~2.4.7":
+  "integrity" "sha512-SvxZysXyEnm7B0e3tHLvDVPFaNMewYolIMqQWm+E9y7Fki0Dapn7LfY/Js+UdFzRq0hpHjDBk+bv1WR9Z7ECgQ=="
+  "resolved" "https://registry.npmjs.org/vue-cli-plugin-vuetify/-/vue-cli-plugin-vuetify-2.4.7.tgz"
+  "version" "2.4.7"
   dependencies:
     "null-loader" "^4.0.1"
     "semver" "^7.1.2"
