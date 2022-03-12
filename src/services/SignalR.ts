@@ -1,11 +1,10 @@
 import { HubConnectionState, HubConnectionBuilder } from "@microsoft/signalr";
 import { reactive } from "vue";
-const connection = new HubConnectionBuilder()
-  .withUrl("https://localhost:5001/ChatHub")
-  .withAutomaticReconnect()
-  .build();
 export function signalrInit() {
   const messageContent = reactive<Array<string>>([]);
+  const connection = new HubConnectionBuilder()
+    .withUrl("https://localhost:5001/ChatHub")
+    .build();
   connection
     .start()
     .then(() => {
