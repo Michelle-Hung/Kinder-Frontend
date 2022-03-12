@@ -1,51 +1,44 @@
 <template>
   <v-col cols="12" sm="6">
     <v-card class="mx-auto" max-width="600">
-      <v-container>
-        <v-card-title>
-          <v-card-avatar>
-            <v-avatar>
-              <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
-            </v-avatar>
-            John
-          </v-card-avatar>
-        </v-card-title>
-        <v-item-group>
-          <v-row v-for="(message, index) in messageContent" :key="index">
-            <v-item>
-              <v-col cols="12" sm="6">
-                <v-avatar size="small">
-                  <img
-                    src="https://cdn.vuetifyjs.com/images/john.jpg"
-                    alt="John"
-                  />
-                </v-avatar>
-                <v-card class="d-inline-flex pa-2" height="100%" width="100%">
-                  <v-card-text>
-                    {{ message }}
-                  </v-card-text>
-                </v-card>
-              </v-col>
-            </v-item>
+      <v-card-title>
+        <v-card-avatar>
+          <v-avatar>
+            <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
+          </v-avatar>
+          John
+        </v-card-avatar>
+      </v-card-title>
+      <v-row v-for="(message, index) in messageContent" :key="index">
+        <v-col cols="12" sm="6">
+          <v-avatar size="small">
+            <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
+          </v-avatar>
+          <v-card class="d-inline-flex pa-2" height="100%" width="100%">
+            <v-card-text>
+              {{ message }}
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <!-- </v-item> -->
+      </v-row>
+      <!-- <v-item> -->
+      <v-card-actions>
+        <v-container>
+          <v-row>
+            <v-text-field
+              v-model="newMessage"
+              label="Message"
+              placeholder="Type a message here"
+              :type="text"
+              append-icon="mdi-send"
+            ></v-text-field>
+            <v-btn icon @click="sendMessage">
+              <v-icon color="light-blue lighten-3">mdi-send</v-icon>
+            </v-btn>
           </v-row>
-          <v-item>
-            <v-card-actions>
-              <v-row>
-                <v-text-field
-                  v-model="newMessage"
-                  label="Message"
-                  placeholder="Type a message here"
-                  :type="text"
-                  append-icon="mdi-send"
-                ></v-text-field>
-                <v-btn icon @click="sendMessage">
-                  <v-icon color="light-blue lighten-3">mdi-send</v-icon>
-                </v-btn>
-              </v-row>
-            </v-card-actions>
-          </v-item>
-        </v-item-group>
-      </v-container>
+        </v-container>
+      </v-card-actions>
     </v-card>
   </v-col>
 </template>
