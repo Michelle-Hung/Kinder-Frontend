@@ -1,44 +1,48 @@
 <template>
-  <v-col cols="12" sm="6">
-    <v-card class="mx-auto" max-width="600">
-      <v-card-title>
+  <v-container>
+    <v-col cols="12" sm="6">
+      <v-card class="mx-auto" max-width="600">
         <v-card-avatar>
           <v-avatar>
             <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
           </v-avatar>
           John
         </v-card-avatar>
-      </v-card-title>
-      <v-row v-for="(message, index) in messageContent" :key="index">
-        <v-col cols="12" sm="6">
-          <v-avatar size="small">
-            <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
-          </v-avatar>
-          <v-card class="d-inline-flex pa-2" height="100%" width="100%">
-            <v-card-text>
-              {{ message }}
-            </v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-      <v-card-actions>
-        <v-container>
-          <v-row>
+        <v-row v-for="(message, index) in messageContent" :key="index">
+          <v-col cols="12" sm="6">
+            <v-card-avatar>
+              <v-avatar size="small">
+                <img
+                  src="https://cdn.vuetifyjs.com/images/john.jpg"
+                  alt="John"
+                />
+              </v-avatar>
+            </v-card-avatar>
+            <v-card>
+              <v-card-text>
+                {{ message }}
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-card-actions>
+          <v-row style="padding: 0.5rem">
             <v-text-field
               v-model="newMessage"
               label="Message"
               placeholder="Type a message here"
-              :type="text"
+              type="text"
               append-icon="mdi-send"
+              clearable
             ></v-text-field>
             <v-btn icon @click="sendMessage">
               <v-icon color="light-blue lighten-3">mdi-send</v-icon>
             </v-btn>
           </v-row>
-        </v-container>
-      </v-card-actions>
-    </v-card>
-  </v-col>
+        </v-card-actions>
+      </v-card>
+    </v-col>
+  </v-container>
 </template>
 
 <script>
