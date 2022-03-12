@@ -11,7 +11,7 @@
         <v-row
           v-for="(message, index) in messageContent"
           :key="index"
-          class="mt-5"
+          class="mt-5 pl-3"
         >
           <v-card-avatar>
             <v-avatar size="small">
@@ -55,8 +55,8 @@ import { signalrInit } from "../services/SignalR";
 export default {
   name: "Chat",
   setup() {
-    const {connection, messageContent} = signalrInit();
-    
+    const { connection, messageContent } = signalrInit();
+
     const newMessage = ref("");
     const sendMessage = () => {
       connection.invoke("sendMessageAsync", newMessage.value).catch((error) => {
@@ -67,7 +67,7 @@ export default {
 
     const clearMessage = () => {
       newMessage.value = "";
-    }
+    };
     return { newMessage, messageContent, sendMessage, clearMessage };
   },
 };
