@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-col cols="12" sm="6">
+    <v-col cols="12" sm="12" xs="6">
       <v-card class="mx-auto" color="#F5F5F5">
         <v-card-avatar>
           <v-avatar>
