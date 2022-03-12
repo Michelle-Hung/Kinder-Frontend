@@ -59,10 +59,14 @@ export default {
 
     const newMessage = ref("");
     const sendMessage = () => {
-      connection.invoke("sendMessageAsync", newMessage.value).catch((error) => {
-        console.log(error);
-      });
-      newMessage.value = "";
+      if (newMessage.value !== "") {
+        connection
+          .invoke("sendMessageAsync", newMessage.value)
+          .catch((error) => {
+            console.log(error);
+          });
+        newMessage.value = "";
+      }
     };
 
     const clearMessage = () => {
