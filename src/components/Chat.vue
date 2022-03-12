@@ -20,9 +20,7 @@
             </v-card-text>
           </v-card>
         </v-col>
-        <!-- </v-item> -->
       </v-row>
-      <!-- <v-item> -->
       <v-card-actions>
         <v-container>
           <v-row>
