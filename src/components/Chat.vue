@@ -6,12 +6,13 @@
           <v-avatar>
             <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
           </v-avatar>
-          John
+          {{myNickName}}
         </v-card-avatar>
         <v-row
-          v-for="(message, index) in messageContent"
+          v-for="(chatContent, index) in chatContentList"
           :key="index"
           class="mt-5 pl-3"
+          :class="myNickName === chatContent.userName ? 'flex-row-reverse pr-3' : ''"
         >
           <v-card-avatar>
             <v-avatar size="small">
@@ -20,7 +21,7 @@
           </v-card-avatar>
           <v-card>
             <v-card-text>
-              {{ message }}
+              {{ chatContent.message }}
             </v-card-text>
           </v-card>
         </v-row>
@@ -52,16 +53,18 @@
 <script>
 import { ref } from "vue";
 import { signalrInit } from "../services/SignalR";
+import store from '@/store';
 export default {
   name: "Chat",
   setup() {
-    const { connection, messageContent } = signalrInit();
+    const { connection, chatContentList } = signalrInit();
 
     const newMessage = ref("");
+    const myNickName = store.getters.userName;
     const sendMessage = () => {
       if (newMessage.value !== "") {
         connection
-          .invoke("sendMessageAsync", newMessage.value)
+          .invoke("sendMessageAsync", newMessage.value, myNickName)
           .catch((error) => {
             console.log(error);
           });
@@ -72,7 +75,8 @@ export default {
     const clearMessage = () => {
       newMessage.value = "";
     };
-    return { newMessage, messageContent, sendMessage, clearMessage };
+
+    return { newMessage, chatContentList, myNickName, sendMessage, clearMessage };
   },
 };
 </script>
