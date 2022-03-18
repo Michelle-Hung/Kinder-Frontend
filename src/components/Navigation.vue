@@ -2,7 +2,8 @@
   <v-card>
     <v-navigation-drawer
       color="light-blue-accent-4 text-white"
-      permanent="100%"
+      permanent
+      :width="300"
     >
       <v-list nav color="transparent">
         <v-list-item
