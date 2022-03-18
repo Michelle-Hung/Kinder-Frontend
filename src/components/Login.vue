@@ -1,5 +1,5 @@
 <template>
-  <v-container sm="12" xs="6">
+  <v-container sm="12" xs="6" fluid>
     <v-card height="100%">
       <v-card-header>
         <v-card-header-text>

@@ -1,5 +1,5 @@
 <template>
-  <v-container sm="12" xs="6">
+  <v-container sm="12" xs="6" fluid>
     <v-card class="mx-auto" color="grey-lighten-4" height="100%">
       <v-card-avatar>
         <v-avatar>
