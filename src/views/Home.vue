@@ -18,8 +18,8 @@ import Login from "../components/Login.vue";
 // })
 // export default class Home extends Vue {
 //   setup() {
-    
-//     const isLogin = computed(() => { 
+
+//     const isLogin = computed(() => {
 //       return store.getters.isLogin});
 //     return { isLogin }
 //   }
@@ -31,9 +31,10 @@ export default {
     Login,
   },
   setup() {
-    const isLogin = computed(() => { 
-      return store.getters.isLogin});
-    return { isLogin }
-  }
-}
+    const isLogin = computed(() => {
+      return store.getters.isLogin;
+    });
+    return { isLogin };
+  },
+};
 </script>

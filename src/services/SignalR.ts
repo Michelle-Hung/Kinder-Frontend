@@ -12,14 +12,14 @@ export function signalrInit() {
       if (connection.state !== HubConnectionState.Connected) {
         console.log(connection.state);
       }
-      connection.on("ReceiveMessage", ((message: string, userName: string) => {
-        const chatContent:ChatContent = {
-            message : message,
-            userName : userName
-        }
+      connection.on("ReceiveMessage", (message: string, userName: string) => {
+        const chatContent: ChatContent = {
+          message: message,
+          userName: userName,
+        };
         chatContentList.push(chatContent);
         console.log(`receive message :: ${JSON.stringify(chatContentList)}`);
-      }));
+      });
     })
     .catch((err) => {
       console.log(`Connection Error ${err}`);
