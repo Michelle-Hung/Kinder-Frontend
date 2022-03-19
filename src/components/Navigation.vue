@@ -17,16 +17,19 @@
         ></v-list-item>
         <v-list-item prepend-icon="mdi:mdi-bell" value="notifactation" link>
           <template v-slot:append>
-            <v-badge color="green" dot offset-x="20" offset-y="-15"></v-badge>
+            <v-badge color="red" dot offset-x="20" offset-y="-15"></v-badge>
           </template>
         </v-list-item>
       </v-list>
-      <v-list>
-        <v-list-item prepend-avatar="https://cdn.vuetifyjs.com/images/john.jpg">
-        </v-list-item>
+      <v-list class="fixedBottom">
+        <v-list-item
+          prepend-avatar="https://cdn.vuetifyjs.com/images/john.jpg"
+        ></v-list-item>
+        <v-list-item prepend-icon="mdi:mdi-cog-outline"></v-list-item>
       </v-list>
     </v-navigation-drawer>
   </v-card>
+
   <v-card max-width="auto" v-if="isOpenChatList">
     <v-navigation-drawer theme="dark" :width="450">
       <v-list nav>
@@ -45,12 +48,14 @@
             <v-text-field
               label="Search for people or group"
               prepend-inner-icon="mdi:mdi-magnify"
-              v-model="searchText"
+              clearable
+              :model="searchText"
               @keypress.enter="search"
+              hide-details="auto"
             ></v-text-field>
           </v-list-item-header>
         </v-list-item>
-        <v-list-item height="90" border value="1">
+        <v-list-item height="90" value="1">
           <v-list-item-avatar left>
             <v-avatar size="small">
               <v-img
@@ -59,11 +64,12 @@
             </v-avatar>
           </v-list-item-avatar>
           <v-list-item-header>
-            <v-list-item-title>Michelle</v-list-item-title>
+            <v-list-item-title>Britta</v-list-item-title>
             <v-list-item-subtitle>Hi</v-list-item-subtitle>
           </v-list-item-header>
         </v-list-item>
-        <v-list-item height="90" border>
+        <v-divider />
+        <v-list-item height="90">
           <v-list-item-avatar left>
             <v-avatar size="small">
               <v-img
@@ -76,7 +82,8 @@
             <v-list-item-subtitle>Hi</v-list-item-subtitle>
           </v-list-item-header>
         </v-list-item>
-        <v-list-item height="90" border>
+        <v-divider />
+        <v-list-item height="90">
           <v-list-item-avatar left>
             <v-avatar size="small">
               <v-img
@@ -89,14 +96,16 @@
             <v-list-item-subtitle>Hi</v-list-item-subtitle>
           </v-list-item-header>
         </v-list-item>
+        <v-divider />
       </v-list>
     </v-navigation-drawer>
   </v-card>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from "@vue/reactivity";
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
   name: "Navigation",
   setup() {
     const searchText = ref("");
@@ -105,13 +114,16 @@ export default {
     };
     const isOpenChatList = ref(false);
     const openChatList = () => {
-        console.log(`before assign :: ${isOpenChatList.value}`)
       isOpenChatList.value = !isOpenChatList.value;
-        console.log(`before assign :: ${isOpenChatList.value}`)
-
     };
     return { search, searchText, openChatList, isOpenChatList };
   },
-};
+});
 </script>
-<style></style>
+<style>
+.fixedBottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+</style>

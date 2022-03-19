@@ -1,21 +1,29 @@
 <template>
   <v-app>
-    <v-main>
-      <router-view />
-    </v-main>
+    <v-layout full-height>
+      <Navigation v-if="isLogin" />
+      <v-main>
+        <router-view />
+      </v-main>
+    </v-layout>
   </v-app>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
+import store from "./store";
+import Navigation from "./components/Navigation.vue";
 
 export default defineComponent({
   name: "App",
-
-  data() {
-    return {
-      //
-    };
+  components: {
+    Navigation,
+  },
+  setup() {
+    const isLogin = computed(() => {
+      return store.getters.isLogin;
+    });
+    return { isLogin };
   },
 });
 </script>

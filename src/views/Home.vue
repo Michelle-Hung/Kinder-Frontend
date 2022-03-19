@@ -1,21 +1,13 @@
 <template>
-  <v-app>
-    <v-layout full-height>
-      <Navigation />
-      <v-main>
-        <Login v-if="!isLogin" />
-        <Chat v-else-if="isLogin" />
-      </v-main>
-    </v-layout>
-  </v-app>
+  <Login v-if="!isLogin" />
+  <Chat v-else-if="isLogin" />
 </template>
 
 <script lang="ts">
-import { computed } from "vue";
+import { computed, defineComponent } from "vue";
 import store from "@/store";
 import Chat from "../components/Chat.vue";
 import Login from "../components/Login.vue";
-import Navigation from "../components/Navigation.vue";
 
 // @Options({
 //   components: {
@@ -32,12 +24,11 @@ import Navigation from "../components/Navigation.vue";
 //     return { isLogin }
 //   }
 // }
-export default {
+export default defineComponent({
   name: "Home",
   components: {
     Chat,
     Login,
-    Navigation,
   },
   setup() {
     const isLogin = computed(() => {
@@ -45,5 +36,5 @@ export default {
     });
     return { isLogin };
   },
-};
+});
 </script>

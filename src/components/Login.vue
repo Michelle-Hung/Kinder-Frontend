@@ -3,7 +3,7 @@
     <v-card height="100%">
       <v-card-header>
         <v-card-header-text>
-          <v-card-title class="justify-center"> Login </v-card-title>
+          <v-card-title class="justify-center"> Welcom </v-card-title>
         </v-card-header-text>
       </v-card-header>
       <v-card-text>
@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { defineComponent, ref } from "vue";
 import store from "@/store";
-export default {
+export default defineComponent({
   name: "Login",
   setup() {
     const userName = ref("");
@@ -35,6 +35,6 @@ export default {
     };
     return { userName, submit };
   },
-};
+});
 </script>
 <style></style>

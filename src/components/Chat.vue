@@ -50,11 +50,11 @@
   </v-container>
 </template>
 
-<script>
-import { ref } from "vue";
+<script lang="ts">
+import { defineComponent, ref } from "vue";
 import { signalrInit } from "../services/SignalR";
 import store from "@/store";
-export default {
+export default defineComponent({
   name: "Chat",
   setup() {
     const { connection, chatContentList } = signalrInit();
@@ -84,7 +84,7 @@ export default {
       clearMessage,
     };
   },
-};
+});
 </script>
 
 <style></style>
