@@ -7,10 +7,10 @@
         </v-card-header-text>
       </v-card-header>
       <v-card-text>
-        <v-form>
+        <v-form @submit="submit">
           <v-text-field v-model="userName" label="Name" required></v-text-field>
           <v-card-actions class="justify-center">
-            <v-btn color="light-blue-accent-4 text-white" @click="submit"
+            <v-btn color="light-blue-accent-4 text-white" type="submit"
               >Submit</v-btn
             >
           </v-card-actions>
