@@ -20,7 +20,26 @@
     </v-navigation-drawer>
     <v-navigation-drawer theme="dark" permanent :width="450">
       <v-list nav>
-        <v-list-subheader>Chat</v-list-subheader>
+        <v-list-item>
+          <v-list-item-header>
+            <v-card>
+              <v-row>
+                <v-card-title>Chats</v-card-title>
+                <v-card-actions class="d-flex justify-end">
+                  <v-btn icon>
+                    <v-icon>mdi:mdi-dots-horizontal</v-icon>
+                  </v-btn>
+                </v-card-actions>
+              </v-row>
+            </v-card>
+            <v-text-field
+              label="Search for people or group"
+              prepend-inner-icon="mdi:mdi-magnify"
+              v-model="searchText"
+              @keypress.enter="search"
+            ></v-text-field>
+          </v-list-item-header>
+        </v-list-item>
         <v-list-item height="90" border value="1">
           <v-list-item-avatar left>
             <v-avatar size="small">
@@ -66,8 +85,16 @@
 </template>
 
 <script>
+import { ref } from "@vue/reactivity";
 export default {
   name: "Navigation",
+  setup() {
+    const searchText = ref("");
+    const search = () => {
+      console.log(`search text:: ${searchText.value}`);
+    };
+    return { search, searchText };
+  },
 };
 </script>
 <style></style>
