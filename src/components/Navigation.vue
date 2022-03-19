@@ -1,30 +1,40 @@
 <template>
-  <v-card>
-    <v-navigation-drawer theme="dark" rail permanent>
-      <v-list-item
-        prepend-avatar="https://randomuser.me/api/portraits/women/75.jpg"
-      ></v-list-item>
+  <v-card max-width="auto">
+    <v-navigation-drawer theme="dark" rail permanent :rail-width="73">
+      <v-list-item prepend-icon="mdi:mdi-snapchat"></v-list-item>
 
       <v-divider></v-divider>
 
-      <v-list density="compact" nav>
-        <v-list-item
-          prepend-icon="mdi:mdi-view-dashboard"
-          value="dashboard"
-        ></v-list-item>
+      <v-list nav>
         <v-list-item
           prepend-icon="mdi:mdi-forum"
           value="messages"
+          @click="openChatList"
         ></v-list-item>
+        <v-list-item
+          prepend-icon="mdi:mdi-account-multiple-plus-outline"
+          value="create"
+        ></v-list-item>
+        <v-list-item prepend-icon="mdi:mdi-bell" value="notifactation" link>
+          <template v-slot:append>
+            <v-badge color="green" dot offset-x="20" offset-y="-15"></v-badge>
+          </template>
+        </v-list-item>
+      </v-list>
+      <v-list>
+        <v-list-item prepend-avatar="https://cdn.vuetifyjs.com/images/john.jpg">
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-navigation-drawer theme="dark" permanent :width="450">
+  </v-card>
+  <v-card max-width="auto" v-if="isOpenChatList">
+    <v-navigation-drawer theme="dark" :width="450">
       <v-list nav>
         <v-list-item>
           <v-list-item-header>
             <v-card>
               <v-row>
-                <v-card-title>Chats</v-card-title>
+                <v-card-title>Recent</v-card-title>
                 <v-card-actions class="d-flex justify-end">
                   <v-btn icon>
                     <v-icon>mdi:mdi-dots-horizontal</v-icon>
@@ -93,7 +103,14 @@ export default {
     const search = () => {
       console.log(`search text:: ${searchText.value}`);
     };
-    return { search, searchText };
+    const isOpenChatList = ref(false);
+    const openChatList = () => {
+        console.log(`before assign :: ${isOpenChatList.value}`)
+      isOpenChatList.value = !isOpenChatList.value;
+        console.log(`before assign :: ${isOpenChatList.value}`)
+
+    };
+    return { search, searchText, openChatList, isOpenChatList };
   },
 };
 </script>
