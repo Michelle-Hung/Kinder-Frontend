@@ -31,7 +31,7 @@
   </v-card>
 
   <v-card max-width="auto" v-if="isOpenChatList">
-    <v-navigation-drawer theme="dark" :width="450">
+    <v-navigation-drawer theme="dark" :width="400">
       <v-list nav>
         <v-list-item>
           <v-list-item-header>
