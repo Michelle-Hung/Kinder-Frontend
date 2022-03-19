@@ -37,6 +37,7 @@
             append-icon="mdi:mdi-send"
             clearable
             @click:clear="clearMessage"
+            @keypress.enter="sendMessage"
           ></v-text-field>
           <v-btn
             icon="mdi:mdi-send"
