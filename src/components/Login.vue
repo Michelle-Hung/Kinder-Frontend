@@ -26,6 +26,7 @@
             :type="showPassword ? 'text' : 'password'"
             required
             @click:append-inner="showPassword = !showPassword"
+            @keypress.enter="submit"
           ></v-text-field>
           <v-card-actions class="justify-center">
             <v-btn color="light-blue-accent-4" @click="submit"
