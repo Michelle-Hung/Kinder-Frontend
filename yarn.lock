@@ -3039,6 +3039,13 @@
   "resolved" "https://registry.nlark.com/aws4/download/aws4-1.11.0.tgz"
   "version" "1.11.0"
 
+"axios@^0.26.1":
+  "integrity" "sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-0.26.1.tgz"
+  "version" "0.26.1"
+  dependencies:
+    "follow-redirects" "^1.14.8"
+
 "babel-jest@^27.1.0", "babel-jest@^27.5.1", "babel-jest@>= 24 < 27", "babel-jest@>=27.0.0 <28", "babel-jest@27.x":
   "integrity" "sha512-cdQ5dXjGRd0IBRATiQ4mZGlGlRE8kJpjPOixdNRdT+m3UcNqmYWN6rK6nvtXYfY3D76cb8s/O1Ss8ea24PIwcg=="
   "resolved" "https://registry.npmmirror.com/babel-jest/-/babel-jest-27.5.1.tgz"
@@ -5034,10 +5041,10 @@
   "resolved" "https://registry.npmmirror.com/flatted/-/flatted-3.2.5.tgz"
   "version" "3.2.5"
 
-"follow-redirects@^1.0.0":
-  "integrity" "sha512-fhUl5EwSJbbl8AR+uYL2KQDxLkdSjZGR36xy46AO7cOMTrCMON6Sa28FmAnC2tRTDbd/Uuzz3aJBv7EBN7JH8A=="
-  "resolved" "https://registry.npmmirror.com/follow-redirects/download/follow-redirects-1.14.6.tgz"
-  "version" "1.14.6"
+"follow-redirects@^1.0.0", "follow-redirects@^1.14.8":
+  "integrity" "sha512-MQDfihBQYMcyy5dhRDJUHcw7lb2Pv/TuE6xP1vyraLukNDHKbDxDNaOE3NbCAdKQApno+GPRyo1YAp89yCjK4w=="
+  "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.9.tgz"
+  "version" "1.14.9"
 
 "forever-agent@~0.6.1":
   "integrity" "sha1-+8cfDEGt6zf5bFd60e1C2P2sypE="
@@ -9615,9 +9622,9 @@
     "upath" "^2.0.1"
 
 "vuetify@^3.0.0-alpha.0", "vuetify@^3.0.0-alpha.11":
-  "integrity" "sha512-F9TwV3Xk6J/bSH422kATrKeIiumGRkzGJPsvM0/8vPwYF0HWh7dHRhhYsIKkfhl5UJl/LYdeGNm1L8+jtldA0w=="
-  "resolved" "https://registry.npmjs.org/vuetify/-/vuetify-3.0.0-alpha.12.tgz"
-  "version" "3.0.0-alpha.12"
+  "integrity" "sha512-/xDoSTs1l/s9jkFwQ5uK9ok9py0TsImRENA7DrAJnsgx5cwH9yEvS3XJOUOsH3ra+VYt5xZP7Pfh8/HtBQaAlw=="
+  "resolved" "https://registry.npmjs.org/vuetify/-/vuetify-3.0.0-beta.0.tgz"
+  "version" "3.0.0-beta.0"
 
 "vuex@^4.0.0-0":
   "integrity" "sha512-M6r8uxELjZIK8kTKDGgZTYX/ahzblnzC4isU1tpmEuOIIKmV+TRdc+H4s8ds2NuZ7wpUTdGRzJRtoj+lI+pc0Q=="
