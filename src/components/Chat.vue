@@ -1,6 +1,7 @@
 <template>
   <v-container sm="12" xs="6" fluid>
     <v-card class="mx-auto" color="grey-lighten-4" height="100%">
+      <div style="height:950px">
       <v-card-avatar>
         <v-avatar>
           <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
@@ -34,7 +35,6 @@
             label="Message"
             placeholder="Type a message here"
             type="text"
-            append-icon="mdi:mdi-send"
             clearable
             @click:clear="clearMessage"
             @keypress.enter="sendMessage"
@@ -47,6 +47,7 @@
           />
         </v-row>
       </v-card-actions>
+      </div>
     </v-card>
   </v-container>
 </template>
