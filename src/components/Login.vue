@@ -1,17 +1,35 @@
 <template>
   <v-container sm="12" xs="6" fluid>
-    <v-card height="100%">
+    <v-alert
+      v-if="isShowLoginErrorMessage"
+      type="error"
+      prominent
+      variant="outlined"
+    >
+      Login Fail</v-alert
+    >
+    <v-card class="mx-auto" height="100%" max-width="80%" min-width="50%"> 
       <v-card-header>
         <v-card-header-text>
           <v-card-title class="justify-center"> Welcom </v-card-title>
         </v-card-header-text>
       </v-card-header>
       <v-card-text>
-        <v-form @submit="submit">
+        <v-form>
           <v-text-field v-model="userName" label="Name" required></v-text-field>
+          <v-text-field
+            v-model="password"
+            :append-inner-icon="
+              showPassword ? 'mdi:mdi-eye' : 'mdi:mdi-eye-off'
+            "
+            label="Password"
+            :type="showPassword ? 'text' : 'password'"
+            required
+            @click:append-inner="showPassword = !showPassword"
+          ></v-text-field>
           <v-card-actions class="justify-center">
-            <v-btn color="light-blue-accent-4 text-white" type="submit"
-              >Submit</v-btn
+            <v-btn color="light-blue-accent-4" @click="submit"
+              >Login</v-btn
             >
           </v-card-actions>
         </v-form>
@@ -22,18 +40,37 @@
 
 <script>
 import { defineComponent, ref } from "vue";
+import { LoginAsync } from "@/services/User";
 import store from "@/store";
 export default defineComponent({
   name: "Login",
   setup() {
     const userName = ref("");
+    const password = ref("");
+    const showPassword = ref(false);
+    const isShowLoginErrorMessage = ref(false);
 
     const submit = () => {
-      if (userName.value.length >= 1) {
-        store.dispatch("setUserName", userName.value);
+      if (userName.value.length >= 1 && password.value.length >= 1) {
+        const data = LoginAsync(userName.value, password.value);
+        data.then(res => {
+          if (res.data.success) {
+            store.dispatch("setUserName", userName.value);
+            store.dispatch("setIsLogin", res.data.success);
+          } 
+          store.dispatch("setIsLogin", res.data.success);
+          isShowLoginErrorMessage.value = !res.data.success;
+        })
       }
     };
-    return { userName, submit };
+
+    return {
+      userName,
+      password,
+      showPassword,
+      isShowLoginErrorMessage,
+      submit,
+    };
   },
 });
 </script>
