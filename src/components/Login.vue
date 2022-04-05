@@ -57,7 +57,7 @@ export default defineComponent({
           const userInfo: UserInfo = {
             id: res.data.userId,
             name: userName.value,
-            isLogin: res.data.success
+            isLogin: res.data.success,
           };
           store.dispatch("setUserInfo", userInfo);
           isShowLoginErrorMessage.value = !res.data.success;

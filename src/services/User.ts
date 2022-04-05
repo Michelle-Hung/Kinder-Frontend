@@ -2,7 +2,7 @@ import axios from "axios";
 
 type LoginResponse = {
   success: boolean;
-  userId: string
+  userId: string;
 };
 
 export async function LoginAsync(name: string, password: string) {
@@ -21,7 +21,7 @@ export async function LoginAsync(name: string, password: string) {
   } catch (error) {
     const data: LoginResponse = {
       success: false,
-      userId: "0"
+      userId: "0",
     };
     if (axios.isAxiosError(error)) {
       console.error("error message: ", error.message);
