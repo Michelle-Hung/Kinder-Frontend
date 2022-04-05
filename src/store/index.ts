@@ -3,7 +3,7 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     userName: "",
-    isLogin: false
+    isLogin: false,
   },
   getters: {
     userName(state) {
@@ -25,8 +25,8 @@ export default createStore({
     setUserName({ commit }, name) {
       commit("setUserName", name);
     },
-    setIsLogin({commit}, isLogin) {
-      commit("setIsLogin", isLogin)
+    setIsLogin({ commit }, isLogin) {
+      commit("setIsLogin", isLogin);
     },
   },
   modules: {},

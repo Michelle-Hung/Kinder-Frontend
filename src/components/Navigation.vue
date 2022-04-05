@@ -29,7 +29,7 @@
           <v-list-item prepend-icon="mdi:mdi-cog-outline"></v-list-item>
         </v-list>
       </v-navigation-drawer>
-      
+
       <v-navigation-drawer theme="dark" :width="400" v-if="isOpenChatList">
         <v-list nav>
           <v-list-item>

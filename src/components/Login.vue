@@ -8,7 +8,7 @@
     >
       Login Fail</v-alert
     >
-    <v-card class="mx-auto" height="100%" max-width="80%" min-width="50%"> 
+    <v-card class="mx-auto" height="100%" max-width="80%" min-width="50%">
       <v-card-header>
         <v-card-header-text>
           <v-card-title class="justify-center"> Welcom </v-card-title>
@@ -29,9 +29,7 @@
             @keypress.enter="submit"
           ></v-text-field>
           <v-card-actions class="justify-center">
-            <v-btn color="light-blue-accent-4" @click="submit"
-              >Login</v-btn
-            >
+            <v-btn color="light-blue-accent-4" @click="submit">Login</v-btn>
           </v-card-actions>
         </v-form>
       </v-card-text>
@@ -54,14 +52,14 @@ export default defineComponent({
     const submit = () => {
       if (userName.value.length >= 1 && password.value.length >= 1) {
         const data = LoginAsync(userName.value, password.value);
-        data.then(res => {
+        data.then((res) => {
           if (res.data.success) {
             store.dispatch("setUserName", userName.value);
             store.dispatch("setIsLogin", res.data.success);
-          } 
+          }
           store.dispatch("setIsLogin", res.data.success);
           isShowLoginErrorMessage.value = !res.data.success;
-        })
+        });
       }
     };
 
