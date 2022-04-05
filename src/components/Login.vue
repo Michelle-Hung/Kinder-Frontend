@@ -37,10 +37,11 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref } from "vue";
 import { LoginAsync } from "@/services/User";
 import store from "@/store";
+import { UserInfo } from "@/models/UserInfo";
 export default defineComponent({
   name: "Login",
   setup() {
@@ -53,11 +54,12 @@ export default defineComponent({
       if (userName.value.length >= 1 && password.value.length >= 1) {
         const data = LoginAsync(userName.value, password.value);
         data.then((res) => {
-          if (res.data.success) {
-            store.dispatch("setUserName", userName.value);
-            store.dispatch("setIsLogin", res.data.success);
-          }
-          store.dispatch("setIsLogin", res.data.success);
+          const userInfo: UserInfo = {
+            id: res.data.userId,
+            name: userName.value,
+            isLogin: res.data.success
+          };
+          store.dispatch("setUserInfo", userInfo);
           isShowLoginErrorMessage.value = !res.data.success;
         });
       }

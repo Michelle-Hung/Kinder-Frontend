@@ -106,6 +106,7 @@
 <script lang="ts">
 import { ref } from "@vue/reactivity";
 import { defineComponent } from "vue";
+import { GetRoomsAsync } from "@/services/Room";
 export default defineComponent({
   name: "Navigation",
   setup() {
@@ -117,7 +118,9 @@ export default defineComponent({
     const openChatList = () => {
       isOpenChatList.value = !isOpenChatList.value;
     };
-    return { search, searchText, openChatList, isOpenChatList };
+
+    const rooms = GetRoomsAsync("1");
+    return { search, searchText, openChatList, isOpenChatList, rooms };
   },
 });
 </script>

@@ -1,32 +1,25 @@
 import { createStore } from "vuex";
+import { UserInfo } from "@/models/UserInfo";
 
 export default createStore({
   state: {
     userName: "",
     isLogin: false,
+    userInfo: {} as UserInfo,
   },
   getters: {
-    userName(state) {
-      return state.userName;
-    },
-    isLogin(state) {
-      return state.isLogin;
+    userInfo(state) {
+      return state.userInfo;
     },
   },
   mutations: {
-    setUserName(state, name) {
-      state.userName = name;
-    },
-    setIsLogin(state, isLogin) {
-      state.isLogin = isLogin;
+    setUserInfo(state, userInfo) {
+      state.userInfo = userInfo;
     },
   },
   actions: {
-    setUserName({ commit }, name) {
-      commit("setUserName", name);
-    },
-    setIsLogin({ commit }, isLogin) {
-      commit("setIsLogin", isLogin);
+    setUserInfo({ commit }, userInfo) {
+      commit("setUserInfo", userInfo);
     },
   },
   modules: {},

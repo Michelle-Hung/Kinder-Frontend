@@ -62,7 +62,7 @@ export default defineComponent({
     const { connection, chatContentList } = signalrInit();
 
     const newMessage = ref("");
-    const myNickName = store.getters.userName;
+    const myNickName = store.getters.userInfo.name;
     const sendMessage = () => {
       if (newMessage.value !== "") {
         connection

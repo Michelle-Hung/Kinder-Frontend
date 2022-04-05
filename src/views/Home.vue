@@ -32,7 +32,7 @@ export default defineComponent({
   },
   setup() {
     const isLogin = computed(() => {
-      return store.getters.isLogin;
+      return store.getters.userInfo.isLogin;
     });
     return { isLogin };
   },
