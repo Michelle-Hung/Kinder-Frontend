@@ -3,8 +3,6 @@ import { UserInfo } from "@/models/UserInfo";
 
 export default createStore({
   state: {
-    userName: "",
-    isLogin: false,
     userInfo: {} as UserInfo,
   },
   getters: {
