@@ -1,4 +1,6 @@
 # kinder-frontend
+![Action status](https://github.com/Michelle-Hung/Kinder-Frontend/actions/workflows/node.js.yml/badge.svg?event=push)
+
 A practiced frontend project with vue3
 
 Usint typescript, vuex
