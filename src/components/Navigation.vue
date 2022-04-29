@@ -68,7 +68,7 @@
             </v-list-item-header>
           </v-list-item>
           <v-divider />
-          <v-list-item height="90">
+          <v-list-item height="90" value="2">
             <v-list-item-avatar left>
               <v-avatar size="small">
                 <v-img

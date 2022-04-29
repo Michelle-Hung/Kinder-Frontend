@@ -4,7 +4,7 @@ import { reactive } from "vue";
 export function signalrInit() {
   const chatContentList = reactive<Array<ChatContent>>([]);
   const connection = new HubConnectionBuilder()
-    .withUrl("https://localhost:5001/ChatHub")
+    .withUrl(`${process.env.VUE_APP_API_URL}/ChatHub`)
     .build();
   connection
     .start()

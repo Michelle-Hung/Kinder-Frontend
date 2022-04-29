@@ -11,7 +11,7 @@ type GetRoomsResponse = {
 export async function GetRoomsAsync(userId: string) {
   try {
     const { data } = await axios.post<GetRoomsResponse>(
-      "https://localhost:5001/chat/GetRooms",
+      `${process.env.VUE_APP_API_URL}/chat/GetRooms`,
       { userId: userId },
       {
         headers: {

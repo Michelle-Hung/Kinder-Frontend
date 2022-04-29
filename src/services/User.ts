@@ -8,7 +8,7 @@ type LoginResponse = {
 export async function LoginAsync(name: string, password: string) {
   try {
     const { data } = await axios.post<LoginResponse>(
-      "https://localhost:5001/user/Login",
+      `${process.env.VUE_APP_API_URL}/user/Login`,
       { name: name, password: password },
       {
         headers: {
