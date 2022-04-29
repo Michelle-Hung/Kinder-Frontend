@@ -1,6 +1,6 @@
 <template>
   <v-container sm="12" xs="6" fluid>
-    <v-card class="mx-auto" color="grey-lighten-4" height="100%">
+    <v-card class="mx-auto overflow-auto" color="grey-lighten-4" height="100%">
       <div style="height: 950px">
         <v-card-avatar>
           <v-avatar>
