@@ -36,7 +36,7 @@
 
       <chat-list v-if="isOpenChatList" />
 
-      <friend-list v-else-if="isOpenFriendList" />
+      <friend-list v-if="isOpenFriendList" />
 
       <v-main style="height: 1000px"></v-main>
     </v-layout>
@@ -60,12 +60,18 @@ export default defineComponent({
       console.log(`search text:: ${searchText.value}`);
     };
     const isOpenChatList = ref(false);
+    const isOpenFriendList = ref(false);
     const openChatList = () => {
       isOpenChatList.value = !isOpenChatList.value;
+      if (isOpenChatList.value === true) {
+        isOpenFriendList.value = false;
+      }
     };
-    const isOpenFriendList = ref(false);
     const openFriendList = () => {
       isOpenFriendList.value = !isOpenFriendList.value;
+      if (isOpenFriendList.value === true) {
+        isOpenChatList.value = false;
+      }
     };
 
     return {
