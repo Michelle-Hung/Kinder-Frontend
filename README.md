@@ -29,3 +29,13 @@ yarn build
 ```
 yarn lint
 ```
+
+### Dockerize vue.js app with http-server
+
+Reference: https://v2.vuejs.org/v2/cookbook/dockerize-vuejs-app.html
+```
+docker build -t kinder-frontend .
+```
+```
+docker run -it -p 8080:8080 --rm --name kinder-frontend kinder-frontend
+```
