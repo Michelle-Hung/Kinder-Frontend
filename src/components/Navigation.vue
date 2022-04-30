@@ -2,7 +2,11 @@
   <v-card max-width="auto">
     <v-layout>
       <v-navigation-drawer theme="dark" rail permanent :rail-width="73">
-        <v-list-item prepend-icon="mdi:mdi-snapchat"></v-list-item>
+        <v-list-item
+          prepend-icon="mdi:mdi-snapchat"
+          value="friendList"
+          @click="openFriendList"
+        ></v-list-item>
 
         <v-divider></v-divider>
 
@@ -30,74 +34,10 @@
         </v-list>
       </v-navigation-drawer>
 
-      <v-navigation-drawer theme="dark" :width="400" v-if="isOpenChatList">
-        <v-list nav>
-          <v-list-item>
-            <v-list-item-header>
-              <v-card>
-                <v-row>
-                  <v-card-title>Recent</v-card-title>
-                  <v-card-actions class="d-flex justify-end">
-                    <v-btn icon>
-                      <v-icon>mdi:mdi-dots-horizontal</v-icon>
-                    </v-btn>
-                  </v-card-actions>
-                </v-row>
-              </v-card>
-              <v-text-field
-                label="Search for people or group"
-                prepend-inner-icon="mdi:mdi-magnify"
-                clearable
-                :model="searchText"
-                @keypress.enter="search"
-                hide-details="auto"
-              ></v-text-field>
-            </v-list-item-header>
-          </v-list-item>
-          <v-list-item height="90" value="1">
-            <v-list-item-avatar left>
-              <v-avatar size="small">
-                <v-img
-                  src="https://randomuser.me/api/portraits/women/75.jpg"
-                ></v-img>
-              </v-avatar>
-            </v-list-item-avatar>
-            <v-list-item-header>
-              <v-list-item-title>Britta</v-list-item-title>
-              <v-list-item-subtitle>Hi</v-list-item-subtitle>
-            </v-list-item-header>
-          </v-list-item>
-          <v-divider />
-          <v-list-item height="90" value="2">
-            <v-list-item-avatar left>
-              <v-avatar size="small">
-                <v-img
-                  src="https://randomuser.me/api/portraits/women/75.jpg"
-                ></v-img>
-              </v-avatar>
-            </v-list-item-avatar>
-            <v-list-item-header>
-              <v-list-item-title>Nancy</v-list-item-title>
-              <v-list-item-subtitle>Hi</v-list-item-subtitle>
-            </v-list-item-header>
-          </v-list-item>
-          <v-divider />
-          <v-list-item height="90">
-            <v-list-item-avatar left>
-              <v-avatar size="small">
-                <v-img
-                  src="https://randomuser.me/api/portraits/women/75.jpg"
-                ></v-img>
-              </v-avatar>
-            </v-list-item-avatar>
-            <v-list-item-header>
-              <v-list-item-title>Maggie</v-list-item-title>
-              <v-list-item-subtitle>Hi</v-list-item-subtitle>
-            </v-list-item-header>
-          </v-list-item>
-          <v-divider />
-        </v-list>
-      </v-navigation-drawer>
+      <chat-list v-if="isOpenChatList" />
+
+      <friend-list v-else-if="isOpenFriendList" />
+
       <v-main style="height: 1000px"></v-main>
     </v-layout>
   </v-card>
@@ -106,8 +46,14 @@
 <script lang="ts">
 import { ref } from "@vue/reactivity";
 import { defineComponent } from "vue";
+import FriendList from "@/components/FriendList.vue";
+import ChatList from "@/components/ChatList.vue";
 export default defineComponent({
   name: "Navigation",
+  components: {
+    FriendList,
+    ChatList,
+  },
   setup() {
     const searchText = ref("");
     const search = () => {
@@ -117,8 +63,19 @@ export default defineComponent({
     const openChatList = () => {
       isOpenChatList.value = !isOpenChatList.value;
     };
+    const isOpenFriendList = ref(false);
+    const openFriendList = () => {
+      isOpenFriendList.value = !isOpenFriendList.value;
+    };
 
-    return { search, searchText, openChatList, isOpenChatList };
+    return {
+      search,
+      searchText,
+      openChatList,
+      isOpenChatList,
+      openFriendList,
+      isOpenFriendList,
+    };
   },
 });
 </script>
