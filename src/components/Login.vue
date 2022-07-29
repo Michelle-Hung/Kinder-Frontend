@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, provide, reactive, ref } from "vue";
 import { LoginAsync } from "@/services/User";
 import store from "@/store";
 import { UserInfo } from "@/models/UserInfo";
@@ -54,11 +54,12 @@ export default defineComponent({
       if (userName.value.length >= 1 && password.value.length >= 1) {
         const data = LoginAsync(userName.value, password.value);
         data.then((res) => {
-          const userInfo: UserInfo = {
+          const userInfo =reactive<UserInfo>( {
             id: res.data.userId,
             name: userName.value,
             isLogin: res.data.success,
-          };
+          });
+          provide("userInfo", userInfo);
           store.dispatch("setUserInfo", userInfo);
           isShowLoginErrorMessage.value = !res.data.success;
         });
