@@ -54,7 +54,7 @@ export default defineComponent({
       if (userName.value.length >= 1 && password.value.length >= 1) {
         const data = LoginAsync(userName.value, password.value);
         data.then((res) => {
-          const userInfo =reactive<UserInfo>( {
+          const userInfo = reactive<UserInfo>({
             id: res.data.userId,
             name: userName.value,
             isLogin: res.data.success,
