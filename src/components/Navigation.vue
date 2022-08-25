@@ -34,56 +34,37 @@
         </v-list>
       </v-navigation-drawer>
 
-      <chat-list v-if="isOpenChatList" />
+      <ChatList v-if="isOpenChatList" />
 
-      <friend-list v-if="isOpenFriendList" />
+      <FriendList v-if="isOpenFriendList" />
 
       <v-main style="height: 1000px"></v-main>
     </v-layout>
   </v-card>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { ref } from "@vue/reactivity";
-import { defineComponent } from "vue";
 import FriendList from "@/components/FriendList.vue";
 import ChatList from "@/components/ChatList.vue";
-export default defineComponent({
-  name: "Navigation",
-  components: {
-    FriendList,
-    ChatList,
-  },
-  setup() {
-    const searchText = ref("");
-    const search = () => {
-      console.log(`search text:: ${searchText.value}`);
-    };
-    const isOpenChatList = ref(false);
-    const isOpenFriendList = ref(false);
-    const openChatList = () => {
-      isOpenChatList.value = !isOpenChatList.value;
-      if (isOpenChatList.value === true) {
-        isOpenFriendList.value = false;
-      }
-    };
-    const openFriendList = () => {
-      isOpenFriendList.value = !isOpenFriendList.value;
-      if (isOpenFriendList.value === true) {
-        isOpenChatList.value = false;
-      }
-    };
-
-    return {
-      search,
-      searchText,
-      openChatList,
-      isOpenChatList,
-      openFriendList,
-      isOpenFriendList,
-    };
-  },
-});
+const searchText = ref("");
+const search = () => {
+  console.log(`search text:: ${searchText.value}`);
+};
+const isOpenChatList = ref(false);
+const isOpenFriendList = ref(false);
+const openChatList = () => {
+  isOpenChatList.value = !isOpenChatList.value;
+  if (isOpenChatList.value === true) {
+    isOpenFriendList.value = false;
+  }
+};
+const openFriendList = () => {
+  isOpenFriendList.value = !isOpenFriendList.value;
+  if (isOpenFriendList.value === true) {
+    isOpenChatList.value = false;
+  }
+};
 </script>
 <style>
 .fixedBottom {

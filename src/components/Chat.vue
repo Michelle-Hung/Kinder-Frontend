@@ -52,41 +52,29 @@
   </v-container>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
+<script lang="ts" setup>
+import { ref } from "vue";
 import { signalrInit } from "../services/SignalR";
-import store from "@/store";
-export default defineComponent({
-  name: "Chat",
-  setup() {
-    const { connection, chatContentList } = signalrInit();
+import { useUserInfoStore } from "@/store/UserInfo";
+const { connection, chatContentList } = signalrInit();
+const userInfoStore = useUserInfoStore();
 
-    const newMessage = ref("");
-    const myNickName = store.getters.userInfo.name;
-    const sendMessage = () => {
-      if (newMessage.value !== "") {
-        connection
-          .invoke("sendMessageAsync", newMessage.value, myNickName)
-          .catch((error) => {
-            console.log(error);
-          });
-        newMessage.value = "";
-      }
-    };
+const newMessage = ref("");
+const myNickName = userInfoStore.$state.userInfo?.name;
+const sendMessage = () => {
+  if (newMessage.value !== "") {
+    connection
+      .invoke("sendMessageAsync", newMessage.value, myNickName)
+      .catch((error) => {
+        console.log(error);
+      });
+    newMessage.value = "";
+  }
+};
 
-    const clearMessage = () => {
-      newMessage.value = "";
-    };
-
-    return {
-      newMessage,
-      chatContentList,
-      myNickName,
-      sendMessage,
-      clearMessage,
-    };
-  },
-});
+const clearMessage = () => {
+  newMessage.value = "";
+};
 </script>
 
 <style></style>

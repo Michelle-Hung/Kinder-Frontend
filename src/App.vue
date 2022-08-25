@@ -9,21 +9,15 @@
   </v-app>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent } from "vue";
-import store from "./store";
+<script lang="ts" setup>
+import { computed } from "vue";
 import Navigation from "./components/Navigation.vue";
+import { useUserInfoStore } from "./store/UserInfo";
+import { storeToRefs } from "pinia";
 
-export default defineComponent({
-  name: "App",
-  components: {
-    Navigation,
-  },
-  setup() {
-    const isLogin = computed(() => {
-      return store.getters.userInfo.isLogin;
-    });
-    return { isLogin };
-  },
+const userInfoStore = useUserInfoStore();
+const { userInfo } = storeToRefs(userInfoStore);
+const isLogin = computed(() => {
+  return userInfo.value?.isLogin;
 });
 </script>

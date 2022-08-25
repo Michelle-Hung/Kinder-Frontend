@@ -45,15 +45,18 @@
 </template>
 
 <script setup lang="ts">
-import store from "@/store";
 import { ref } from "@vue/reactivity";
 import friendApi from "@/services/Friend";
 import { Friends } from "@/models/Friends";
+import { useUserInfoStore } from "@/store/UserInfo";
+import { storeToRefs } from "pinia";
 
 let searchText = ref("");
+const userInfoStore = useUserInfoStore();
+const { userInfo } = storeToRefs(userInfoStore);
 
 let friendContacts = ref<Array<Friends>>([]);
-friendApi.GetContacts(store.getters.userInfo.id).then((response) => {
+friendApi.GetContacts(userInfo.value.id).then((response) => {
   friendContacts.value = response.data.friends;
 });
 </script>

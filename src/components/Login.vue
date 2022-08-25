@@ -40,11 +40,12 @@
 <script lang="ts">
 import { defineComponent, provide, reactive, ref } from "vue";
 import { LoginAsync } from "@/services/User";
-import store from "@/store";
 import { UserInfo } from "@/models/UserInfo";
+import { useUserInfoStore } from "@/store/UserInfo";
 export default defineComponent({
   name: "Login",
   setup() {
+    const userInfoStore = useUserInfoStore();
     const userName = ref("");
     const password = ref("");
     const showPassword = ref(false);
@@ -60,7 +61,7 @@ export default defineComponent({
             isLogin: res.data.success,
           });
           provide("userInfo", userInfo);
-          store.dispatch("setUserInfo", userInfo);
+          userInfoStore.setUserInfo(userInfo);
           isShowLoginErrorMessage.value = !res.data.success;
         });
       }
