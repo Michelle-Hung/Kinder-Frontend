@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, defineComponent } from "vue";
+import { computed } from "vue";
 import Chat from "../components/Chat.vue";
 import Login from "../components/Login.vue";
 import { useUserInfoStore } from "@/store/UserInfo";

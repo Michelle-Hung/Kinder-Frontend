@@ -37,44 +37,30 @@
   </v-container>
 </template>
 
-<script lang="ts">
-import { defineComponent, provide, reactive, ref } from "vue";
+<script lang="ts" setup>
+import { reactive, ref } from "vue";
 import { LoginAsync } from "@/services/User";
 import { UserInfo } from "@/models/UserInfo";
 import { useUserInfoStore } from "@/store/UserInfo";
-export default defineComponent({
-  name: "Login",
-  setup() {
-    const userInfoStore = useUserInfoStore();
-    const userName = ref("");
-    const password = ref("");
-    const showPassword = ref(false);
-    const isShowLoginErrorMessage = ref(false);
+const userInfoStore = useUserInfoStore();
+const userName = ref("");
+const password = ref("");
+const showPassword = ref(false);
+const isShowLoginErrorMessage = ref(false);
 
-    const submit = () => {
-      if (userName.value.length >= 1 && password.value.length >= 1) {
-        const data = LoginAsync(userName.value, password.value);
-        data.then((res) => {
-          const userInfo = reactive<UserInfo>({
-            id: res.data.userId,
-            name: userName.value,
-            isLogin: res.data.success,
-          });
-          provide("userInfo", userInfo);
-          userInfoStore.setUserInfo(userInfo);
-          isShowLoginErrorMessage.value = !res.data.success;
-        });
-      }
-    };
-
-    return {
-      userName,
-      password,
-      showPassword,
-      isShowLoginErrorMessage,
-      submit,
-    };
-  },
-});
+const submit = () => {
+  if (userName.value.length >= 1 && password.value.length >= 1) {
+    const data = LoginAsync(userName.value, password.value);
+    data.then((res) => {
+      const userInfo = reactive<UserInfo>({
+        id: res.data.userId,
+        name: userName.value,
+        isLogin: res.data.success,
+      });
+      userInfoStore.setUserInfo(userInfo);
+      isShowLoginErrorMessage.value = !res.data.success;
+    });
+  }
+};
 </script>
 <style></style>
