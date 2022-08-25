@@ -1,6 +1,6 @@
 import { UserInfo } from "@/models/UserInfo";
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 export const useUserInfoStore = defineStore("userInfo", () => {
   const userInfo = ref<UserInfo>({
