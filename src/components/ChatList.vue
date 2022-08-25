@@ -69,22 +69,11 @@
   </v-navigation-drawer>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { ref } from "@vue/reactivity";
-import { defineComponent } from "vue";
-export default defineComponent({
-  name: "FriendList",
-  setup() {
-    const searchText = ref("");
-    const search = () => {
-      console.log(`search text:: ${searchText.value}`);
-    };
-
-    return {
-      search,
-      searchText,
-    };
-  },
-});
+const searchText = ref("");
+const search = () => {
+  console.log(`search text:: ${searchText.value}`);
+};
 </script>
 <style></style>
