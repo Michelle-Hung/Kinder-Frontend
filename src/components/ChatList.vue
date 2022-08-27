@@ -17,14 +17,14 @@
             label="Search for people or group"
             prepend-inner-icon="mdi:mdi-magnify"
             clearable
-            :model="searchText"
-            @keypress.enter="search"
+            v-model="searchText"
+            @keypress.enter="filterRecentChatInfos"
             hide-details="auto"
           ></v-text-field>
         </v-list-item-header>
       </v-list-item>
       <div
-        v-for="(recentChatInfo, index) in recentChatInfos"
+        v-for="(recentChatInfo, index) in filterRecentChatInfos()"
         v-bind:key="recentChatInfo.channelId"
       >
         <v-list-item height="90" :value="index + 1">
@@ -37,9 +37,7 @@
           </v-list-item-avatar>
           <v-list-item-header>
             <v-list-item-title>{{
-              recentChatInfo.channelType === "Direct"
-                ? recentChatInfo.chatInfo.sendTo.displayName
-                : recentChatInfo.channelName
+              recentChatInfo.channelName
             }}</v-list-item-title>
             <v-list-item-subtitle>{{
               recentChatInfo.chatInfo.message
@@ -86,10 +84,7 @@ import { RecentChatListInfo } from "@/models/ChatInfo";
 import { useLoginUserInfoStore } from "@/store/LoginUserInfo";
 import chatApi from "@/services/Chat";
 import { ref } from "@vue/reactivity";
-const searchText = ref("");
-const search = () => {
-  console.log(`search text:: ${searchText.value}`);
-};
+
 const loginUserInfoStore = useLoginUserInfoStore();
 let recentChatInfos = ref<Array<RecentChatListInfo>>([]);
 chatApi
@@ -97,5 +92,12 @@ chatApi
   .then((response) => {
     recentChatInfos.value = response.data;
   });
+
+const searchText = ref("");
+const filterRecentChatInfos = () => {
+  return recentChatInfos.value.filter((x) =>
+    x.channelName.toLowerCase().includes(searchText.value.toLowerCase())
+  );
+};
 </script>
 <style></style>
