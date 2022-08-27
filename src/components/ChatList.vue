@@ -23,31 +23,32 @@
           ></v-text-field>
         </v-list-item-header>
       </v-list-item>
-      <v-list-item
-        height="90"
-        :value="index + 1"
+      <div
         v-for="(recentChatInfo, index) in recentChatInfos"
         v-bind:key="recentChatInfo.channelId"
       >
-        <v-list-item-avatar left>
-          <v-avatar size="small">
-            <v-img
-              src="https://randomuser.me/api/portraits/women/75.jpg"
-            ></v-img>
-          </v-avatar>
-        </v-list-item-avatar>
-        <v-list-item-header>
-          <v-list-item-title>{{
-            recentChatInfo.channelType === "Direct"
-              ? recentChatInfo.chatInfo.sendTo.displayName
-              : recentChatInfo.channelName
-          }}</v-list-item-title>
-          <v-list-item-subtitle>{{
-            recentChatInfo.chatInfo.message
-          }}</v-list-item-subtitle>
-        </v-list-item-header>
-      </v-list-item>
-      <v-divider />
+        <v-list-item height="90" :value="index + 1">
+          <v-list-item-avatar left>
+            <v-avatar size="small">
+              <v-img
+                src="https://randomuser.me/api/portraits/women/75.jpg"
+              ></v-img>
+            </v-avatar>
+          </v-list-item-avatar>
+          <v-list-item-header>
+            <v-list-item-title>{{
+              recentChatInfo.channelType === "Direct"
+                ? recentChatInfo.chatInfo.sendTo.displayName
+                : recentChatInfo.channelName
+            }}</v-list-item-title>
+            <v-list-item-subtitle>{{
+              recentChatInfo.chatInfo.message
+            }}</v-list-item-subtitle>
+          </v-list-item-header>
+        </v-list-item>
+        <v-divider />
+      </div>
+
       <!-- <v-list-item height="90" value="2">
         <v-list-item-avatar left>
           <v-avatar size="small">
