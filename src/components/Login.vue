@@ -40,9 +40,9 @@
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
 import { LoginAsync } from "@/services/User";
-import { UserInfo } from "@/models/UserInfo";
-import { useUserInfoStore } from "@/store/UserInfo";
-const userInfoStore = useUserInfoStore();
+import { LoginUserInfo } from "@/models/LoginUserInfo";
+import { useLoginUserInfoStore } from "@/store/LoginUserInfo";
+const loginUserInfoStore = useLoginUserInfoStore();
 const userName = ref("");
 const password = ref("");
 const showPassword = ref(false);
@@ -52,12 +52,12 @@ const submit = () => {
   if (userName.value.length >= 1 && password.value.length >= 1) {
     const data = LoginAsync(userName.value, password.value);
     data.then((res) => {
-      const userInfo = reactive<UserInfo>({
+      const loginUserInfo = reactive<LoginUserInfo>({
         id: res.data.userId,
         name: userName.value,
         isLogin: res.data.success,
       });
-      userInfoStore.setUserInfo(userInfo);
+      loginUserInfoStore.setLoginUserInfo(loginUserInfo);
       isShowLoginErrorMessage.value = !res.data.success;
     });
   }

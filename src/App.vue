@@ -12,12 +12,12 @@
 <script lang="ts" setup>
 import { computed } from "vue";
 import Navigation from "./components/Navigation.vue";
-import { useUserInfoStore } from "./store/UserInfo";
+import { useLoginUserInfoStore } from "./store/LoginUserInfo";
 import { storeToRefs } from "pinia";
 
-const userInfoStore = useUserInfoStore();
-const { userInfo } = storeToRefs(userInfoStore);
+const loginUserInfoStore = useLoginUserInfoStore();
+const { loginUserInfo } = storeToRefs(loginUserInfoStore);
 const isLogin = computed(() => {
-  return userInfo.value?.isLogin;
+  return loginUserInfo.value?.isLogin;
 });
 </script>

@@ -82,17 +82,19 @@
 
 <script lang="ts" setup>
 import { RecentChatListInfo } from "@/models/ChatInfo";
-import { useUserInfoStore } from "@/store/UserInfo";
+import { useLoginUserInfoStore } from "@/store/LoginUserInfo";
 import chatApi from "@/services/Chat";
 import { ref } from "@vue/reactivity";
 const searchText = ref("");
 const search = () => {
   console.log(`search text:: ${searchText.value}`);
 };
-const userInfoStore = useUserInfoStore();
+const loginUserInfoStore = useLoginUserInfoStore();
 let recentChatInfos = ref<Array<RecentChatListInfo>>([]);
-chatApi.GrtRecentChatList(userInfoStore.$state.userInfo.id).then((response) => {
-  recentChatInfos.value = response.data;
-});
+chatApi
+  .GrtRecentChatList(loginUserInfoStore.$state.loginUserInfo.id)
+  .then((response) => {
+    recentChatInfos.value = response.data;
+  });
 </script>
 <style></style>

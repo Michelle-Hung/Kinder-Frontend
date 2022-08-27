@@ -55,12 +55,12 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { signalrInit } from "../services/SignalR";
-import { useUserInfoStore } from "@/store/UserInfo";
+import { useLoginUserInfoStore } from "@/store/LoginUserInfo";
 const { connection, chatContentList } = signalrInit();
-const userInfoStore = useUserInfoStore();
+const loginUserInfoStore = useLoginUserInfoStore();
 
 const newMessage = ref("");
-const myNickName = userInfoStore.$state.userInfo?.name;
+const myNickName = loginUserInfoStore.$state.loginUserInfo?.name;
 const sendMessage = () => {
   if (newMessage.value !== "") {
     connection

@@ -7,7 +7,7 @@
 import { computed } from "vue";
 import Chat from "../components/Chat.vue";
 import Login from "../components/Login.vue";
-import { useUserInfoStore } from "@/store/UserInfo";
+import { useLoginUserInfoStore } from "@/store/LoginUserInfo";
 import { storeToRefs } from "pinia";
 
 // @Options({
@@ -25,10 +25,10 @@ import { storeToRefs } from "pinia";
 //     return { isLogin }
 //   }
 // }
-const userInfoStore = useUserInfoStore();
-const { userInfo } = storeToRefs(userInfoStore);
+const loginUserInfoStore = useLoginUserInfoStore();
+const { loginUserInfo } = storeToRefs(loginUserInfoStore);
 
 const isLogin = computed(() => {
-  return userInfo.value?.isLogin;
+  return loginUserInfo.value?.isLogin;
 });
 </script>
